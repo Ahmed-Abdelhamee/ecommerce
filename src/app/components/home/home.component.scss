@@ -1,0 +1,131 @@
+@media screen and (max-width:600px) {
+    p.title{
+        padding-top: 5vh;
+        font-size: 40px;
+    }
+
+    div.left-image-div{
+        height: calc(67vh - 65px);
+    }
+    img.staticImg {
+        height: calc(67vh - 65px);
+        top: 0px;
+    }
+    div.left-image-div div img{
+        margin-left: 0px;
+        height: 100%;
+        top: 25px;
+        bottom: 0px;
+    }
+    button.button-Market{
+        font-size: 14px;
+    }
+    div.icon-circle-div{
+        height: 39px;
+        width: 39px;
+        margin: 25px 10px;
+    }
+    div.icon-circle-div .icon,
+    div.icon-circle-div .face{
+        font-size: 23px;
+    }
+    button.button-Market{
+        font-size: 14px;
+    }
+}
+
+
+.bg-dark{
+    position: relative;
+    z-index: 1;
+}
+.staticImg{
+    position: absolute;
+    width: 100%;
+    min-width: 350px;
+    height: calc(100vh - 65px);
+    left: 0px;
+    top: -5px;
+    z-index: 2;
+}
+.left-image-div {
+    position: relative;
+    height: calc(100vh - 70px);
+}
+.left-image-div div img{
+    position: relative;
+    z-index: 3;
+    top: 50px;
+    width: 100%;
+    min-width: 350px;
+    margin-left: -41px;
+}
+.texts-part{
+    position: relative;
+    z-index: 3;
+}
+.title{
+    color: #efad09;
+    text-align: right;
+    padding-top: 21vh;
+    padding-right: 40px;
+    font-size: 5vw;
+    font-weight: 700;
+}
+.parag{
+    text-align: right;
+    padding-right: 4vw;
+    padding-left: 1vw;
+    font-size: 22px;
+    font-weight: 400;
+    text-shadow: 0px 0px 5px #303030;
+}
+.button-Market{
+    background-color: #efad09;
+    padding: 10px 24px;
+    border-radius: 10px;
+    font-size: 23px;
+    font-weight: 600;
+    font-family: "El Messiri", sans-serif;
+    padding-bottom: 6px;
+}
+
+.icon-circle-div{
+    border: 2.5px solid #efad09;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 55px;
+    width: 55px;
+    padding-bottom: 1px;
+    margin: 50px 10px;
+}
+.icon{
+    color: #efad09;
+    font-size: 33px;
+}
+.face{
+    color: #efad09;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+.icon-circle-div:hover{
+    background-color: #efad09;
+    border: 2.5px solid black;
+    box-shadow: 0px 0px 5px white;
+}
+.icon-circle-div:hover .icon,
+.icon-circle-div:hover .face{
+    color: black;
+    font-weight: 700;
+}
+
+
+.base-div-image img{
+    width: 240px !important;
+    margin: 0px !important;
+    top: 0px !important;
+    min-width: 200px !important;
+}
