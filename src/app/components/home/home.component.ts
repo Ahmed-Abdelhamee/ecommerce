@@ -3,6 +3,8 @@ import { faFacebook  } from '@fortawesome/free-brands-svg-icons';
 import { faInstagram  } from '@fortawesome/free-brands-svg-icons';
 import { faTwitter  } from '@fortawesome/free-brands-svg-icons';
 
+import * as Aos from 'aos';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -16,6 +18,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    Aos.init()
   }
 
 }

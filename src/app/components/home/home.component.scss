@@ -5,10 +5,10 @@
     }
 
     div.left-image-div{
-        height: calc(67vh - 65px);
+        height: fit-content;
     }
     img.staticImg {
-        height: calc(67vh - 65px);
+        height: -webkit-fill-available;
         top: 0px;
     }
     div.left-image-div div img{
@@ -16,6 +16,11 @@
         height: 100%;
         top: 25px;
         bottom: 0px;
+        width: 100%;
+    }
+    div.base-div-image img{
+        top: 0px !important;
+        left: 20px;
     }
     button.button-Market{
         font-size: 14px;
@@ -31,6 +36,13 @@
     }
     button.button-Market{
         font-size: 14px;
+    }
+
+
+    div.men-part-div{
+        display: block;
+        width: 90%;
+        margin-left: 5%;
     }
 }
 
@@ -82,14 +94,18 @@
 }
 .button-Market{
     background-color: #efad09;
-    padding: 10px 24px;
+    padding: 10px 27px;
     border-radius: 10px;
     font-size: 23px;
     font-weight: 600;
     font-family: "El Messiri", sans-serif;
     padding-bottom: 6px;
 }
-
+.button-Market:hover{
+    background-color: #303030;
+    color: white;
+    border: 2.5px solid #efad09;
+}
 .icon-circle-div{
     border: 2.5px solid #efad09;
     border-radius: 50%;
@@ -124,8 +140,36 @@
 
 
 .base-div-image img{
-    width: 240px !important;
     margin: 0px !important;
-    top: 0px !important;
-    min-width: 200px !important;
+    top: 15px !important;
+    width: 40% !important;
+    min-width: 150px !important;
+}
+
+
+
+.part-title{
+    color: #efad09;
+    text-align: center;
+    margin: 27px;
+    font-size: 31px;
+    font-weight: 600;
+}
+.men-part-div{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(25% ,25% ));
+    justify-content: space-evenly;
+}
+.card-container{
+    box-shadow: 4px 4px 10px #80808094;
+    margin-bottom: 50px;
+    border-radius: 31px;
+    padding-top: 20px;
+}
+.card-container img{
+    width: 80%;
+    height: 205px;
+}
+.card-container .product-title{
+    font-weight: 600;
 }
