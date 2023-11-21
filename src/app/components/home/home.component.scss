@@ -1,15 +1,46 @@
+@media screen and (min-width:800px) and (max-width:991px) {
+    svg.static-product-image{
+        top: -8px;
+        height: 185px!important;
+    }
+    div.card-container img{
+        width: 160px;
+        height: 160px;
+        margin-top: 6px;
+    }
+}
+@media screen and (min-width:601px) and (max-width:799px) {
+    .product-list button.side-button.products-side-button-left{
+        left: 1%;
+    }
+    .product-list button.side-button.products-side-button-right{
+        right: 1%;
+    }
+
+    svg.static-product-image{
+        top: -6px;
+        height: 155px !important;
+        left: auto;
+    }
+    div.card-container img{
+        width: 133px;
+        height: 133px;
+        margin-top: 9px;
+    }
+}
+
 @media screen and (max-width:600px) {
-    p.title{
+    p.site-title{
         padding-top: 5vh;
         font-size: 40px;
     }
-
     div.left-image-div{
         height: fit-content;
     }
     img.staticImg {
         height: -webkit-fill-available;
         top: 0px;
+        left: -30px;
     }
     div.left-image-div div img{
         margin-left: 0px;
@@ -39,18 +70,17 @@
     }
 
 
-    div.men-part-div{
+    div.products-part-div{
         display: block;
         width: 90%;
         margin-left: 5%;
     }
-
-    button.side-button{
+    .product-list button.side-button{
         display: none;
     }
 }
 
-
+// --------------------------------- the header for the website ---------------------------------
 .bg-dark{
     position: relative;
     z-index: 1;
@@ -59,14 +89,14 @@
     position: absolute;
     width: 100%;
     min-width: 350px;
-    height: calc(100vh - 65px);
+    height: 535px;
     left: 0px;
     top: -5px;
     z-index: 2;
 }
 .left-image-div {
     position: relative;
-    height: calc(100vh - 70px);
+    height:530px;
 }
 .left-image-div div img{
     position: relative;
@@ -74,21 +104,26 @@
     top: 50px;
     width: 100%;
     min-width: 350px;
-    margin-left: -41px;
+    margin-left: -24px;
+    height: 330px;
+    margin-left: -24px;
+}
+.left-image-div div .base-div-image img{
+    height: auto;
 }
 .texts-part{
     position: relative;
     z-index: 3;
 }
-.title{
+.site-title{
     color: #efad09;
     text-align: right;
-    padding-top: 21vh;
+    padding-top: 100px;
     padding-right: 40px;
     font-size: 5vw;
     font-weight: 700;
 }
-.parag{
+.parag-about-site{
     text-align: right;
     padding-right: 4vw;
     padding-left: 1vw;
@@ -119,7 +154,8 @@
     height: 55px;
     width: 55px;
     padding-bottom: 1px;
-    margin: 50px 10px;
+    margin: auto 10px;
+    margin-top: 37px;
 }
 .icon{
     color: #efad09;
@@ -141,17 +177,40 @@
     color: white;
     font-weight: 700;
 }
-
-
+// te base image for the main product
 .base-div-image img{
     margin: 0px !important;
     top: 15px !important;
     width: 40% !important;
     min-width: 150px !important;
 }
+// side buttons on the products  
+.side-arrow-icon{
+    font-size: 28px;
+    color: #d80000;
+    width: fit-content;
+}
+.side-button{
+    width: fit-content;
+    background: none;
+    border: none;
+    position: absolute;
+    top: calc(50% - 50px);
+    z-index: 3;
+}
+.header-side-button-left{
+    left: 4%;
+}
+.header-side-button-right{
+    right: 6%;
+}
+.header-side-button-right .side-arrow-icon,
+.header-side-button-left .side-arrow-icon {
+    font-size: 33px;
+} 
 
 
-
+// --------------------------------- the parts with the products view ---------------------------------
 .part-title{
     color: #efad09;
     text-align: center;
@@ -159,7 +218,7 @@
     font-size: 31px;
     font-weight: 600;
 }
-.men-part-div{
+.products-part-div{
     position: relative;
     display: grid;
     grid-template-columns: repeat(3, minmax(25% ,25% ));
@@ -174,21 +233,23 @@
     overflow: hidden;
 }
 .card-container img{
-    width: 80%;
+    width: 200px;
     border-radius: 50%;
-    height: 205px;
+    height: 200px;
+    margin-top: 6px;
 }
 .circle-div{
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 .static-product-image{
     position: absolute;
     width: 100% !important;
-    left: 25px;
-    top: -40px;
-    height: 300px !important;
-    transform: rotate(10deg);
+    top: -10px;
+    height: 221px !important;
     z-index: -1;
+    left: 2px;
 }
 .card-container .product-title{
     font-weight: 600;
@@ -198,21 +259,23 @@
 .product-list{
     position: relative;
 }
-.side-button{
-    width: fit-content;
-    background: none;
-    border: none;
-    position: absolute;
-    top: calc(50% - 50px);
-}
-.side-button-right{
+// side buttons for products view 
+.products-side-button-right{
     right: 2%;
 }
-.side-button-left{
+.products-side-button-left{
     left: 2%;
 }
-.side-arrow-icon{
-    font-size: 28px;
-    color: #aa0000;
-    width: fit-content;
+
+
+// --------------------------------- men part promo  ---------------------------------
+
+.men-part-promo{
+    position: relative;
+    height: 80vh;
+    margin-bottom: 20px;
+}
+.background-dark-image{
+    width: 100%;
+    height: 100%;
 }
