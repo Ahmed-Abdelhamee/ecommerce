@@ -8,6 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { LtrDirective } from './models/directives/ltr.directive';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AppRoutingModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [
+    {provide : LocationStrategy , useClass : HashLocationStrategy}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

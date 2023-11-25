@@ -10,6 +10,23 @@
     }
 }
 @media screen and (min-width:601px) and (max-width:799px) {
+    // left header side 
+    div.left-image-div div .promo-image {
+        width: 113%;
+        height: 345px;
+        margin-bottom: 35px;
+        height: 289px;
+    }
+    div.left-image-div div .base-div-image img {
+        width: 138px !important;
+    }
+    button.side-button.promo-left-arrow-button{
+        left: 85%;
+    }
+    button.side-button.promo-right-arrow-button{
+        left: 5.5%;
+    }
+    // arrow buttons around the producst part 
     .product-list button.side-button.products-side-button-left{
         left: 1%;
     }
@@ -30,29 +47,10 @@
 }
 
 @media screen and (max-width:600px) {
+    // frist header part
     p.site-title{
         padding-top: 5vh;
-        font-size: 40px;
-    }
-    div.left-image-div{
-        height: fit-content;
-    }
-    img.staticImg {
-        height: -webkit-fill-available;
-        top: 0px;
-        left: -30px;
-    }
-    div.left-image-div div img{
-        margin-left: 0px;
-        height: 100%;
-        top: 25px;
-        bottom: 0px;
-        width: 100%;
-        min-width: auto;
-    }
-    div.base-div-image img{
-        top: 0px !important;
-        left: 20px;
+        font-size: 45px;
     }
     button.button-Market{
         font-size: 14px;
@@ -69,8 +67,42 @@
     button.button-Market{
         font-size: 14px;
     }
-
-
+    // --- second header part ---
+    div.left-image-div{
+        height: fit-content;
+    }
+    img.staticImg {
+        height: -webkit-fill-available;
+        top: 0px;
+        left: -30px;
+    }
+    div.left-image-div div .promo-image{
+        margin-left: -1.5%;
+        height: 100%;
+        top: 25px;
+        bottom: 0px;
+        width: 100%;
+        min-width: auto;
+        margin-bottom: 6px;
+    }
+    div.base-div-image img{
+        top: 0px !important;
+        left: 16px;
+    }
+    button.side-button{
+        top: calc( 58% - 50px);
+    }
+    button.side-button.promo-left-arrow-button{
+        left: 85%;
+    }
+    button.side-button.promo-right-arrow-button{
+        left: 7.5%;
+    }
+    div.left-image-div div .base-div-image img {
+        width: 45% !important;
+        left: 3%;
+    }
+    /* products part*/
     div.products-part-div{
         display: block;
         width: 90%;
@@ -79,9 +111,19 @@
     .product-list button.side-button{
         display: none;
     }
-
     div.men-part-promo{
         display: none;
+    }
+
+
+    // ----------------------------- promo-part-shoes -----------------------------
+    
+    div.promo-part-shoes{
+        height: 385px;
+    }
+    .promo-part-shoes .part-title{       
+        padding-top: 20px !important; 
+        padding-bottom: 20px !important; 
     }
 }
 
@@ -89,32 +131,6 @@
 .bg-dark{
     position: relative;
     z-index: 1;
-}
-.staticImg{
-    position: absolute;
-    width: 100%;
-    min-width: 350px;
-    height: 535px;
-    left: 0px;
-    top: -5px;
-    z-index: 2;
-}
-.left-image-div {
-    position: relative;
-    height:530px;
-}
-.left-image-div div img{
-    position: relative;
-    z-index: 3;
-    top: 50px;
-    width: 100%;
-    min-width: 350px;
-    margin-left: -24px;
-    height: 330px;
-    margin-left: -24px;
-}
-.left-image-div div .base-div-image img{
-    height: auto;
 }
 .texts-part{
     position: relative;
@@ -125,8 +141,9 @@
     text-align: right;
     padding-top: 100px;
     padding-right: 40px;
-    font-size: 5vw;
+    font-size: 6vw;
     font-weight: 700;
+    font-family: emoji;
 }
 .parag-about-site{
     text-align: right;
@@ -140,10 +157,10 @@
     background-color: #efad09;
     padding: 10px 27px;
     border-radius: 10px;
-    font-size: 23px;
+    font-size: 18px;
     font-weight: 600;
-    font-family: "El Messiri", sans-serif;
-    padding-bottom: 6px;
+    font-family: 'Lemonada', cursive;
+    border: none;
 }
 .button-Market:hover{
     background-color: #303030;
@@ -182,40 +199,133 @@
     color: white;
     font-weight: 700;
 }
-// te base image for the main product
-.base-div-image img{
-    margin: 0px !important;
-    top: 15px !important;
-    width: 40% !important;
-    min-width: 150px !important;
-}
-// side buttons on the products  
-.side-arrow-icon{
-    font-size: 28px;
-    color: #d80000;
-    width: fit-content;
-}
-.side-button{
-    width: fit-content;
-    background: none;
-    border: none;
+
+// the left side style
+.staticImg{
     position: absolute;
-    top: calc(50% - 50px);
+    width: 100%;
+    min-width: 100%;
+    height: 535px;
+    left: 0px;
+    top: -5px;
+    z-index: 2;
+}
+.left-image-div {
+    position: relative;
+    height:530px;
+}
+.left-image-div div .promo-image{
+    position: relative;
     z-index: 3;
+    top: 50px;
+    width: 350px;
+    margin-left: -24px;
+    height: 345px;
+    margin-bottom: 26px;
+    height: 336px;
 }
-.header-side-button-left{
-    left: 4%;
+.left-image-div div .base-div-image img{
+    position: relative;
+    height: auto;
+    z-index: 2;
+    width: 185px !important;
 }
-.header-side-button-right{
-    right: 6%;
+// --- -arrow-buttons ------
+.promo-left-arrow-button,
+.promo-right-arrow-button{
+    font-size: 32px;
+    color :#d80000;
+    left: 73%;
 }
-.header-side-button-right .side-arrow-icon,
-.header-side-button-left .side-arrow-icon {
-    font-size: 33px;
-} 
+.promo-right-arrow-button{
+    left: 17.5%;
+}
 
 
-// --------------------------------- the parts with the products view ---------------------------------
+
+
+
+// --------------------------------- men part promo  ---------------------------------
+.men-part-promo{
+    position: relative;
+    height: 666px;
+    display: flex; // note that display : flex ;   returns the view to the default position  float -> left
+    align-items: center;
+    margin-bottom: 100px;
+}
+.background-dark-image{
+    position: absolute;
+    top: 0px;
+    z-index: -1;
+}
+.part-paragraph{
+    text-align: right;
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 10px 20px;
+}
+
+// ---------------------------------------------------------------------------
+
+
+// ----------------------------- promo-part-shoes -----------------------------
+
+.promo-part-shoes{
+    position: relative;
+    height: 450px;
+    margin-bottom: 20px;
+}
+.promo-part-shoes .bg-shoes-img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.5);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.promo-part-shoes .part-title{
+    margin: auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: #ffc637;
+}
+.promo-part-shoes .part-paragraph{
+    padding: 10px 20% ;
+    text-align: center;
+    font-size: 18px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ------------------------------------------------------------------------------------------------
+// --------------------------------- the style of products parts  ---------------------------------
+// ------------------------------------------------------------------------------------------------
 .part-title{
     color: #efad09;
     text-align: center;
@@ -265,6 +375,19 @@
     position: relative;
 }
 // side buttons for products view 
+.side-arrow-icon{
+    font-size: 28px;
+    color: #d80000;
+    width: fit-content;
+}
+.side-button{
+    width: fit-content;
+    background: none;
+    border: none;
+    position: absolute;
+    top: calc(50% - 50px);
+    z-index: 4;
+}
 .products-side-button-right{
     right: 2%;
 }
@@ -273,23 +396,29 @@
 }
 
 
-// --------------------------------- men part promo  ---------------------------------
-.men-part-promo{
-    position: relative;
-    height: 666px;
-    display: flex; // note that display : flex ;   returns the view to the default position  float -> left
-    align-items: center;
-    margin-bottom: 100px;
+
+
+
+
+
+
+
+// ------------------------------- animations -----------------------------
+// ------------------------------------------------------------------
+
+.animation-left{
+    animation-name: getProductLeft;
+    animation-duration: 2s;
 }
-.background-dark-image{
-    position: absolute;
-    top: 0px;
-    z-index: -1;
+.animation-right{
+    animation-name: getProductRight;
+    animation-duration: 2s;
 }
-.part-paragraph{
-    text-align: right;
-    color: white;
-    font-weight: 600;
-    font-size: 20px;
-    padding: 10px 20px;
+@keyframes getProductLeft {
+    from{transform: translateX(30px);}
+    to{transform: translateX(0px);}
+}
+@keyframes getProductRight {
+    from{transform: translateX(-30px);}
+    to{transform: translateX(0px);}
 }

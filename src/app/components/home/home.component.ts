@@ -12,16 +12,42 @@ import * as Aos from 'aos';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  promoListPhoto:string[]=["assets/28.png" , "assets/29.png" , "assets/30.png" , "assets/31.png" , "assets/32.png" , "assets/33.png" , "assets/34.png" , "assets/35.png" , "assets/36.png" , "assets/37.png" , "assets/38.png"]
+  thePromo="";
+  animation:string =""
+  // ------------- icons variable -------------
   faFacebook =faFacebook ;
   faInstagram =faInstagram ;
   faTwitter =faTwitter ;
   faChevronRight =faChevronRight ;
   faChevronLeft =faChevronLeft ;
+  // ----------------------------------
 
-  constructor() { }
+
+  constructor() { 
+    this.thePromo="assets/28.png"
+  }
 
   ngOnInit(): void {
     Aos.init()
+  }
+
+  getRightProduct(promo:string){
+    this.animation=""
+    this.thePromo=""
+    this.thePromo = (this.promoListPhoto.indexOf(promo) < this.promoListPhoto.length-1) ? this.promoListPhoto[this.promoListPhoto.indexOf(promo) + 1 ] : this.promoListPhoto[0] ;
+    setTimeout(() => {
+      this.animation="animation-right"
+    }, 10);
+  }
+  getLeftProduct(promo:string){
+    this.animation="";
+    this.thePromo=""
+    this.thePromo = (this.promoListPhoto.indexOf(promo) > 0 ) ? this.promoListPhoto[this.promoListPhoto.indexOf(promo) - 1 ] : this.promoListPhoto[this.promoListPhoto.length-1] ;
+    setTimeout(() => {
+      this.animation="animation-left"
+    }, 10);
   }
 
 }

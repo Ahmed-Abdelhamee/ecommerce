@@ -2,7 +2,7 @@
 <div class="col-12 bg-dark" LtrDirective>
     <div class="col-sm-7 texts-part">
         <div class="content">
-            <p class="site-title">علي كيفك</p>
+            <p class="site-title">I Store </p>
             <p class="parag-about-site text-light" data-aos="fade-up" data-aos-duration="3000">موقع يتيح لك المنتجات التجارية بصورة احترافية كأن عينيك تشاهدة ويوفر لك جميع المنتجات ويعرض أهمها والاكثر قبولا</p>
             <div class="text-center">
                 <button class="button-Market">تسوق الآن</button>
@@ -23,19 +23,19 @@
     <div class="col-sm-5 left-image-div">
         <img src="assets/unnamed.png" alt="" class="staticImg">
         <div class="text-center">
-            <button class="side-button header-side-button-left"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
-            <img src="assets/10.png" alt="" data-aos="fade-up" data-aos-duration="1500">
+            <button class="side-button promo-right-arrow-button" (click)="getRightProduct(thePromo)"><fa-icon [icon]="faChevronLeft"></fa-icon></button>
+            <img [src]="thePromo" alt="" data-aos="fade-up" data-aos-duration="1500" class="promo-image"  [ngClass]="animation">
             <div class="text-center base-div-image">
-                <img src="assets/55.png" alt="">
+                <img src="assets/55.png" alt="promo image ">
             </div>
-            <button class="side-button header-side-button-right"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
+            <button class="side-button promo-left-arrow-button" (click)="getLeftProduct(thePromo)" ><fa-icon [icon]="faChevronRight"></fa-icon></button>
         </div>
-
     </div>
 </div>
 <!-- men part view  -->
 <div class="col-12">
     <p class="part-title">ًالأكثر مبيعا</p>
+    
     <div class="col-12 men-part-promo">
         <!--the dark background -->
         <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 603.5 341.06" class="background-dark-image">
@@ -50,7 +50,6 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur quod ducimus assumenda fugiat, ab, quam reprehenderit rerum nemo, ut alias consequatur exercitationem ipsa laboriosam! Temporibus velit ratione necessitatibus omnis dolorem.
             </div>
         </div>
-        
     </div>
     <div class="col-12 product-list">
           <button class="side-button products-side-button-left"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
@@ -121,7 +120,15 @@
 
 <!-- men shoes part view  -->
 <div class="col-12">
-    <p class="part-title">ًالأكثر مبيعا</p>
+    <p class="part-title">ًالأكثر مبيعا</p>.
+    <div class="promo-part-shoes">
+        <img src="assets/Artboard 11.png" alt="" class="bg-shoes-img">
+        <p class="part-title"  data-aos="fade-up" data-aos-duration="1500">احذية رجالي</p>
+        <p class="part-paragraph"   data-aos="fade-up" data-aos-duration="2000">موقع يتيح لك المنتجات التجارية بصورة احترافية كأن عينيك تشاهدة ويوفر لك جميع المنتجات ويعرض أهمها والاكثر قبولا و باقة من اقوي الخصومات و المنتجات العالية الجودة </p>
+        <div class="text-center">
+            <button class="button-Market">تسوق الآن</button>
+        </div>
+    </div>
     <div class="col-12 product-list">
           <button class="side-button products-side-button-left"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
           <div class="products-part-div">
