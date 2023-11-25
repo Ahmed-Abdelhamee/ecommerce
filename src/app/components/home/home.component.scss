@@ -415,10 +415,10 @@
     animation-duration: 1.5s;
 }
 @keyframes getProductLeft {
-    from{transform: translateX(30px);}
-    to{transform: translateX(0px);}
+    from{transform: translateX(30px); opacity: 0;}
+    to{transform: translateX(0px); opacity: 1;}
 }
 @keyframes getProductRight {
-    from{transform: translateX(-30px);}
-    to{transform: translateX(0px);}
+    from{transform: translateX(-30px); opacity: 0;}
+    to{transform: translateX(0px);opacity: 1;}
 }
