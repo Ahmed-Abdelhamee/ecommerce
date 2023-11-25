@@ -35,19 +35,17 @@ export class HomeComponent implements OnInit {
 
   getRightProduct(promo:string){
     this.animation=""
-    this.thePromo=""
     this.thePromo = (this.promoListPhoto.indexOf(promo) < this.promoListPhoto.length-1) ? this.promoListPhoto[this.promoListPhoto.indexOf(promo) + 1 ] : this.promoListPhoto[0] ;
     setTimeout(() => {
       this.animation="animation-right"
-    }, 10);
+    }, 1);
   }
   getLeftProduct(promo:string){
     this.animation="";
-    this.thePromo=""
     this.thePromo = (this.promoListPhoto.indexOf(promo) > 0 ) ? this.promoListPhoto[this.promoListPhoto.indexOf(promo) - 1 ] : this.promoListPhoto[this.promoListPhoto.length-1] ;
     setTimeout(() => {
       this.animation="animation-left"
-    }, 10);
+    }, 1);
   }
 
 }
