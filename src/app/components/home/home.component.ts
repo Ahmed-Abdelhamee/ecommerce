@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
 
   getRightProduct(promo:string){
     this.animation="";
-    this.thePromo="";
+    this.thePromo="1243.png";
     setTimeout(() => {
       this.animation="animation-right";
       if(this.animation=="animation-right")
@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
   }
   getLeftProduct(promo:string){
     this.animation="";
-    this.thePromo="";
+    this.thePromo="1243.png";
     setTimeout(() => {
       this.animation="animation-left";
       if(this.animation=="animation-left")
