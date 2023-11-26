@@ -34,17 +34,19 @@ export class HomeComponent implements OnInit {
   }
 
   getRightProduct(promo:string){
-    this.animation=""
-    this.thePromo = (this.promoListPhoto.indexOf(promo) < this.promoListPhoto.length-1) ? this.promoListPhoto[this.promoListPhoto.indexOf(promo) + 1 ] : this.promoListPhoto[0] ;
+    this.animation="";
+    this.thePromo="";
     setTimeout(() => {
-      this.animation="animation-right"
-    }, 1);
+      this.animation="animation-right";
+      this.thePromo = (this.promoListPhoto.indexOf(promo) < this.promoListPhoto.length-1) ? this.promoListPhoto[this.promoListPhoto.indexOf(promo) + 1 ] : this.promoListPhoto[0] ;
+  }, .9);
   }
   getLeftProduct(promo:string){
     this.animation="";
-    this.thePromo = (this.promoListPhoto.indexOf(promo) > 0 ) ? this.promoListPhoto[this.promoListPhoto.indexOf(promo) - 1 ] : this.promoListPhoto[this.promoListPhoto.length-1] ;
+    this.thePromo="";
     setTimeout(() => {
-      this.animation="animation-left"
+      this.animation="animation-left";
+      this.thePromo = (this.promoListPhoto.indexOf(promo) > 0 ) ? this.promoListPhoto[this.promoListPhoto.indexOf(promo) - 1 ] : this.promoListPhoto[this.promoListPhoto.length-1] ;
     }, 1);
   }
 
