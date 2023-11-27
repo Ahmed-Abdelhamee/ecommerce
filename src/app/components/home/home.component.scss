@@ -72,6 +72,7 @@
         height: fit-content;
     }
     img.staticImg {
+        height: fit-content;
         height: -webkit-fill-available;
         top: 0px;
         left: -30px;
@@ -108,8 +109,12 @@
         width: 90%;
         margin-left: 5%;
     }
-    .product-list button.side-button{
+    div.products-part-div .card-container:nth-of-type(2),
+    div.products-part-div .card-container:nth-of-type(3){
         display: none;
+    }
+    .product-list button.side-button{
+        top: calc( 50% - 50px);
     }
     div.men-part-promo{
         display: none;
@@ -405,6 +410,10 @@
 // ------------------------------- animations -----------------------------
 // ------------------------------------------------------------------
 
+.animation-up{
+    animation-name: getProductUp;
+    animation-duration: 2s;
+}
 .animation-left{
     animation-name: getProductLeft;
     animation-duration: 1.5s;
@@ -412,6 +421,10 @@
 .animation-right{
     animation-name: getProductRight;
     animation-duration: 1.5s;
+}
+@keyframes getProductUp {
+    from{transform: translateY(50px); opacity: 0;}
+    to{transform: translateY(0px); opacity: 1;}
 }
 @keyframes getProductLeft {
     from{transform: translateX(30px); opacity: 0;}
