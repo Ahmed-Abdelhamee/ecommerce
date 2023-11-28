@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
 
   constructor() { 
     this.thePromo="assets/28.png";
-    setTimeout(()=> this.intervalControlVal = setInterval(()=> this.intervalControl(),2000) , 6000 )
+    setTimeout(()=> this.intervalControlVal = setInterval(()=> this.intervalControl(),4000) , 10000 )
   }
 
   ngOnInit(): void {
