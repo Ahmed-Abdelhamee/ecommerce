@@ -8,7 +8,17 @@
     float: right;
     direction: ltr;
     // float: left;
+    width: 100%;
 }
 img::selection{
     background:none;
+}
+@media screen and (min-width:601px) and (max-width:799px) {
+    img.card-img-top{
+        height: 165px !important;
+    }
+}
+.card-img-top{
+    height: 250px;
+    max-height: 250px;
 }

@@ -30,11 +30,23 @@ export class HomeComponent implements OnInit {
 
   // Arrays of parts
   allMenList:any[]=["assets/shirt.jpg","assets/10.png","assets/28.png","assets/30.png","assets/menClothes8.jpg"];
-  menpartList:any[]=[];
+  menPartList:any[]=[]; // for view
+  allWomenList:any[]=["assets/dress7.jpg","assets/dress8.jpg","assets/dress9.jpg","assets/30.png","assets/menClothes8.jpg"];
+  womenPartList:any[]=[]; // for view
+  allMenShoesList:any[]=["assets/shirt.jpg","assets/10.png","assets/28.png","assets/30.png","assets/menClothes8.jpg"];
+  menShoesPartList:any[]=[]; // for view
+  allWomenShoesList:any[]=["assets/shirt.jpg","assets/10.png","assets/28.png","assets/30.png","assets/menClothes8.jpg"];
+  womenShoesPartList:any[]=[]; // for view
+  allMenAccessoiresList:any[]=["assets/shirt.jpg","assets/10.png","assets/28.png","assets/30.png","assets/menClothes8.jpg"];
+  menAccessoiresPartList:any[]=[]; // for view
+  allWomenAccessoiresList:any[]=["assets/shirt.jpg","assets/10.png","assets/28.png","assets/30.png","assets/menClothes8.jpg"];
+  womenAccessoiresPartList:any[]=[]; // for view
+  allBagsList:any[]=["assets/shirt.jpg","assets/10.png","assets/28.png","assets/30.png","assets/menClothes8.jpg"];
+  bagsPartList:any[]=[]; // for view
 
   constructor() { 
     this.thePromo="assets/28.png";
-    this.intervalControlVal = setInterval(()=> this.intervalControl(),2000);
+    setTimeout(()=> this.intervalControlVal = setInterval(()=> this.intervalControl(),2000) , 6000 )
   }
 
   ngOnInit(): void {
@@ -65,15 +77,26 @@ export class HomeComponent implements OnInit {
   
   // codes for part images
   setProducts(){
-    this.menpartList=[]
-    for(let i = 0 ; i< 3 ; i++)
-      this.menpartList.push(this.allMenList[i]);
+    this.menPartList=[]
+    for(let i = 0 ; i< 3 ; i++){
+      this.menPartList.push(this.allMenList[i]);
+      this.womenPartList.push(this.allWomenList[i]);
+      this.menShoesPartList.push(this.allMenList[i]);
+      this.womenShoesPartList.push(this.allMenList[i]);
+      this.menAccessoiresPartList.push(this.allMenList[i]);
+      this.womenAccessoiresPartList.push(this.allMenList[i]);
+      this.bagsPartList.push(this.allMenList[i]);
+    }
   }
   moveProducts(item:any){
     if(item=="left-men-btn"){
       this.allMenList.unshift(this.allMenList.pop());
     }else if(item=="right-men-btn"){
       this.allMenList.push(this.allMenList.shift());
+    }else if(item=="left-women-btn"){
+      this.allWomenList.unshift(this.allMenList.pop());
+    }else if(item=="right-women-btn"){
+      this.womenPartList.push(this.allMenList.shift());
     }
 
     if(window.innerWidth > 600 ){
