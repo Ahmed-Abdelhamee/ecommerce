@@ -72,8 +72,8 @@
         height: fit-content;
     }
     img.staticImg {
-        height: fit-content;
         height: -webkit-fill-available;
+        height: 100%;
         top: 0px;
         left: -30px;
     }
@@ -412,7 +412,7 @@
 
 .animation-up{
     animation-name: getProductUp;
-    animation-duration: 2s;
+    animation-duration: 1.5s;
 }
 .animation-left{
     animation-name: getProductLeft;
@@ -423,7 +423,7 @@
     animation-duration: 1.5s;
 }
 @keyframes getProductUp {
-    from{transform: translateY(50px); opacity: 0;}
+    from{transform: translateY(60px); opacity: 0;}
     to{transform: translateY(0px); opacity: 1;}
 }
 @keyframes getProductLeft {

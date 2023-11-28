@@ -5,17 +5,17 @@
             <p class="site-title">I Style </p>
             <p class="parag-about-site text-light" data-aos="fade-up" data-aos-duration="3000">موقع يتيح لك المنتجات التجارية بصورة احترافية كأن عينيك تشاهدة ويوفر لك جميع المنتجات ويعرض أهمها والاكثر قبولا</p>
             <div class="text-center">
-                <button class="button-Market">تسوق الآن</button>
+                <a href="https://wa.me/+201124928181" target="_blank"><button class="button-Market">تسوق الآن</button></a>
             </div>
             <div class="d-flex justify-content-center">
                 <div class="icon-circle-div">
-                    <p class="face">f</p>
+                    <a href="https://www.snapchat.com" target="_blank"><fa-icon [icon]="faSnapchat" class="icon"></fa-icon></a>
                 </div>
                 <div class="icon-circle-div">
-                    <fa-icon [icon]="faInstagram" class="icon"></fa-icon>
+                    <a href="https://www.instagram.com" target="_blank"><fa-icon [icon]="faInstagram" class="icon"></fa-icon></a>
                 </div>
                 <div class="icon-circle-div">
-                    <fa-icon [icon]="faTwitter" class="icon"></fa-icon>
+                    <a href="https://wa.me/+201124928181" target="_blank"><fa-icon [icon]="faWhatsapp" class="icon"></fa-icon></a>
                 </div>
             </div>
         </div>
@@ -37,9 +37,9 @@
     <p class="part-title">المنتجات الرجاليه الأكثر مبيعا</p>
     <p class="paragraph-part"></p>
     <div class="col-12 product-list">
-          <button class="side-button products-side-button-left" (click)="moveProducts('left-men-btn')"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
-          <div class="products-part-div" id="menProductsPartDiv"  routerLink="men-clothes">
-            <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1000" *ngFor="let item of menPartList; let i=index">
+          <button class="side-button products-side-button-left" (click)="moveProducts('left-men-clothes-btn')"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
+          <div class="products-part-div" id="menClothessPartDiv" >
+            <div class="card-container text-center" routerLink="men-clothes" data-aos="fade-up" data-aos-duration="1000" *ngFor="let item of menClothesPartList; let i=index">
                 <div class="circle-div"> 
                     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
                         <img [src]="item" alt="" >
@@ -48,7 +48,7 @@
                 <p class="price">500 د.ا</p>
             </div>
           </div>
-          <button class="side-button products-side-button-right" (click)="moveProducts('right-men-btn')"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
+          <button class="side-button products-side-button-right" (click)="moveProducts('right-men-clothes-btn')"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
     </div>
 </div>
 
@@ -56,9 +56,9 @@
 <div class="col-12">
     <p class="part-title">المنتجات النسائية الأكثر مبيعا</p>
     <div class="col-12 product-list">
-          <button class="side-button products-side-button-left"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
-          <div class="products-part-div" id="menProductsPartDiv" routerLink="women-clothes">
-            <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1000" *ngFor="let item of womenPartList; let i=index">
+          <button class="side-button products-side-button-left" (click)="moveProducts('left-women-clothes-btn')"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
+          <div class="products-part-div" id="womenClothessPartDiv">
+            <div class="card-container text-center" routerLink="women-clothes" data-aos="fade-up" data-aos-duration="1000" *ngFor="let item of womenClothesPartList; let i=index">
                 <div class="circle-div"> 
                     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
                         <img [src]="item" alt="" >
@@ -66,7 +66,7 @@
                 <p class="product-title">فستان</p>
                 <p class="price">500 د.ا</p>
             </div>
-          <button class="side-button products-side-button-right"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
+          <button class="side-button products-side-button-right" (click)="moveProducts('right-women-clothes-btn')"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
     </div>
 </div>
 
@@ -82,34 +82,18 @@
     </div> -->
     <p class="part-title">الاحذية الرجالية الأكثر مبيعا</p>.
     <div class="col-12 product-list">
-          <button class="side-button products-side-button-left"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
-          <div class="products-part-div" routerLink="men-shoes">
-            <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1000">
+          <button class="side-button products-side-button-left" (click)="moveProducts('left-men-shoes-btn')"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
+          <div class="products-part-div" id="menShoesPartDiv">
+            <div class="card-container text-center" routerLink="men-shoes" data-aos="fade-up" data-aos-duration="1000" *ngFor="let item of menShoesPartList; let i=index">
                 <div class="circle-div"> 
                     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
-                     <img src="assets/1.jpg" alt="">
+                     <img [src]="item" alt="">
                  </div>
                 <p class="product-title">حذاء رجالي</p>
                 <p class="price">500 د.ا</p>
             </div>
-            <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1500">
-             <div class="circle-div"> 
-                <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
-                 <img src="assets/2.jpg" alt="">
-             </div>
-               <p class="product-title">حذاء رجالي</p>
-               <p class="price">250 د.ا</p>
-           </div>
-           <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="2000">
-             <div class="circle-div"> 
-                <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
-                 <img src="assets/3.jpg" alt="">
-             </div>
-               <p class="product-title">حذاء رجالي</p>
-               <p class="price">150 د.ا</p>
-           </div>
           </div>
-          <button class="side-button products-side-button-right"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
+          <button class="side-button products-side-button-right" (click)="moveProducts('right-men-shoes-btn')"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
     </div>
 </div>
 
@@ -117,34 +101,18 @@
 <div class="col-12">
     <p class="part-title">الاحذية النسائية الأكثر مبيعا</p>
     <div class="col-12 product-list">
-          <button class="side-button products-side-button-left"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
-          <div class="products-part-div" routerLink="women-shoes">
-            <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1000">
+          <button class="side-button products-side-button-left" (click)="moveProducts('left-women-shoes-btn')"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
+          <div class="products-part-div" id="womenShoesPartDiv">
+            <div class="card-container text-center" routerLink="women-shoes" data-aos="fade-up" data-aos-duration="1000" *ngFor="let item of womenShoesPartList; let i=index">
                 <div class="circle-div"> 
                     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
-                     <img src="assets/femaleshoes2.jpg" alt="">
+                     <img [src]="item" alt="">
                  </div>
                 <p class="product-title">حذاء نسائي</p>
                 <p class="price">500 د.ا</p>
             </div>
-            <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1500">
-             <div class="circle-div"> 
-                <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
-                 <img src="assets/femaleshoes3.jpg" alt="">
-             </div>
-               <p class="product-title">حذاء نسائي</p>
-               <p class="price">250 د.ا</p>
-           </div>
-           <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="2000">
-             <div class="circle-div"> 
-                <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
-                 <img src="assets/femaleshoes4.jpg" alt="">
-             </div>
-               <p class="product-title">حذاء نسائي</p>
-               <p class="price">150 د.ا</p>
-           </div>
           </div>
-          <button class="side-button products-side-button-right"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
+          <button class="side-button products-side-button-right" (click)="moveProducts('right-women-shoes-btn')"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
     </div>
 </div>
 
@@ -152,34 +120,18 @@
 <div class="col-12">
     <p class="part-title">الساعات الرجالية الأكثر مبيعا</p>
     <div class="col-12 product-list">
-          <button class="side-button products-side-button-left"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
-          <div class="products-part-div" routerLink="men-watches">
-            <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1000">
+          <button class="side-button products-side-button-left" (click)="moveProducts('left-men-watches-btn')"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
+          <div class="products-part-div" id="menWatchesPartDiv">
+            <div class="card-container text-center" routerLink="men-watches" data-aos="fade-up" data-aos-duration="1000" *ngFor="let item of menWatchesPartList; let i=index">
                 <div class="circle-div"> 
                     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
-                     <img src="assets/blackwatch.jpg" alt="">
+                     <img [src]="item" alt="">
                  </div>
                 <p class="product-title">ساعة رجالية</p>
                 <p class="price">500 د.ا</p>
             </div>
-            <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1500">
-             <div class="circle-div"> 
-                <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
-                 <img src="assets/greenwatch.jpg" alt="">
-             </div>
-               <p class="product-title">ساعة رجالية</p>
-               <p class="price">250 د.ا</p>
-           </div>
-           <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="2000">
-             <div class="circle-div"> 
-                <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
-                 <img src="assets/yellowwatch.jpg" alt="">
-             </div>
-               <p class="product-title">ساعة رجالية</p>
-               <p class="price">150 د.ا</p>
-           </div>
           </div>
-          <button class="side-button products-side-button-right"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
+          <button class="side-button products-side-button-right" (click)="moveProducts('right-men-watches-btn')"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
     </div>
 </div>
 
@@ -187,34 +139,18 @@
 <div class="col-12">
     <p class="part-title">الساعات النسائية الأكثر مبيعا</p>
     <div class="col-12 product-list">
-          <button class="side-button products-side-button-left"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
-          <div class="products-part-div" routerLink="women-watches">
-            <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1000">
+          <button class="side-button products-side-button-left" (click)="moveProducts('left-women-watches-btn')"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
+          <div class="products-part-div" id="womenWatchesPartDiv">
+            <div class="card-container text-center" routerLink="women-watches" data-aos="fade-up" data-aos-duration="1000" *ngFor="let item of womenWatchesPartList; let i=index">
                 <div class="circle-div"> 
                     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
-                     <img src="assets/wo-watch.jpg" alt="">
+                     <img [src]="item" alt="">
                  </div>
                 <p class="product-title">ساعة نسائية</p>
                 <p class="price">500 د.ا</p>
             </div>
-            <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1500">
-             <div class="circle-div"> 
-                <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
-                 <img src="assets/wo-watch2.jpg" alt="">
-             </div>
-               <p class="product-title">ساعة نسائية</p>
-               <p class="price">250 د.ا</p>
-           </div>
-           <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="2000">
-             <div class="circle-div"> 
-                <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
-                 <img src="assets/wo-watch3.jpg" alt="">
-             </div>
-               <p class="product-title">ساعة نسائية</p>
-               <p class="price">150 د.ا</p>
-           </div>
           </div>
-          <button class="side-button products-side-button-right"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
+          <button class="side-button products-side-button-right" (click)="moveProducts('right-women-watches-btn')"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
     </div>
 </div>
 
@@ -222,69 +158,37 @@
 <div class="col-12">
     <p class="part-title">الشنط الرجالية والنسائية الأكثر مبيعا</p>
     <div class="col-12 product-list">
-          <button class="side-button products-side-button-left"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
-          <div class="products-part-div" routerLink="bags">
-            <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1000">
+          <button class="side-button products-side-button-left" (click)="moveProducts('left-bags-btn')"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
+          <div class="products-part-div" id="bagsPartDiv">
+            <div class="card-container text-center" routerLink="bags" data-aos="fade-up" data-aos-duration="1000" *ngFor="let item of bagsPartList; let i=index">
                 <div class="circle-div"> 
                     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
-                     <img src="assets/35.png" alt="">
+                     <img [src]="item" alt="">
                  </div>
                 <p class="product-title">modern bag</p>
                 <p class="price">500 د.ا</p>
             </div>
-            <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1500">
-             <div class="circle-div"> 
-                <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
-                 <img src="assets/bag2.jpg" alt="">
-             </div>
-               <p class="product-title">modern bag</p>
-               <p class="price">250 د.ا</p>
-           </div>
-           <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="2000">
-             <div class="circle-div"> 
-                <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
-                 <img src="assets/bag3.jpg" alt="">
-             </div>
-               <p class="product-title">modern bag</p>
-               <p class="price">150 د.ا</p>
-           </div>
           </div>
-          <button class="side-button products-side-button-right"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
+          <button class="side-button products-side-button-right" (click)="moveProducts('right-bags-btn')"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
     </div>
 </div>
 
-<!-- bags part view  -->
+<!-- bags accessoires view  -->
 <div class="col-12">
     <p class="part-title">الاكسسوارات الأكثر مبيعا</p>
     <div class="col-12 product-list">
-          <button class="side-button products-side-button-left"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
-          <div class="products-part-div" routerLink="accessoires">
-            <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1000">
+          <button class="side-button products-side-button-left" (click)="moveProducts('left-accessoires-btn')"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
+          <div class="products-part-div" id="accessoiresPartDiv">
+            <div class="card-container text-center" routerLink="accessoires" data-aos="fade-up" data-aos-duration="1000" *ngFor="let item of accessoiresPartList; let i=index">
                 <div class="circle-div"> 
                     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
-                     <img src="assets/accessoires/accessoires1.jpg" alt="">
+                     <img [src]="item" alt="">
                  </div>
                 <p class="product-title">modern bag</p>
                 <p class="price">500 د.ا</p>
             </div>
-            <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1500">
-             <div class="circle-div"> 
-                <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
-                 <img src="assets/accessoires/accessoires12.jpg" alt="">
-             </div>
-               <p class="product-title">modern bag</p>
-               <p class="price">250 د.ا</p>
-           </div>
-           <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="2000">
-             <div class="circle-div"> 
-                <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
-                 <img src="assets/accessoires/accessoires18.jpg" alt="">
-             </div>
-               <p class="product-title">modern bag</p>
-               <p class="price">150 د.ا</p>
-           </div>
           </div>
-          <button class="side-button products-side-button-right"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
+          <button class="side-button products-side-button-right" (click)="moveProducts('right-accessoires-btn')"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
     </div>
 </div>
 
