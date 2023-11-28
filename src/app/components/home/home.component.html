@@ -36,9 +36,9 @@
 <div class="col-12">
     <p class="part-title">المنتجات الرجاليه الأكثر مبيعا</p>
     <p class="paragraph-part"></p>
-    <div class="col-12 product-list" routerLink="men-clothes">
+    <div class="col-12 product-list">
           <button class="side-button products-side-button-left" (click)="moveProducts('left-men-btn')"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
-          <div class="products-part-div" id="menProductsPartDiv">
+          <div class="products-part-div" id="menProductsPartDiv"  routerLink="men-clothes">
             <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1000" *ngFor="let item of menPartList; let i=index">
                 <div class="circle-div"> 
                     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
@@ -55,9 +55,9 @@
 <!-- women part view  -->
 <div class="col-12">
     <p class="part-title">المنتجات النسائية الأكثر مبيعا</p>
-    <div class="col-12 product-list" routerLink="women-clothes">
+    <div class="col-12 product-list">
           <button class="side-button products-side-button-left"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
-          <div class="products-part-div" id="menProductsPartDiv">
+          <div class="products-part-div" id="menProductsPartDiv" routerLink="women-clothes">
             <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1000" *ngFor="let item of womenPartList; let i=index">
                 <div class="circle-div"> 
                     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
@@ -81,9 +81,9 @@
         </div>
     </div> -->
     <p class="part-title">الاحذية الرجالية الأكثر مبيعا</p>.
-    <div class="col-12 product-list" routerLink="men-shoes">
+    <div class="col-12 product-list">
           <button class="side-button products-side-button-left"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
-          <div class="products-part-div">
+          <div class="products-part-div" routerLink="men-shoes">
             <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1000">
                 <div class="circle-div"> 
                     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
@@ -116,9 +116,9 @@
 <!-- women shoes part view  -->
 <div class="col-12">
     <p class="part-title">الاحذية النسائية الأكثر مبيعا</p>
-    <div class="col-12 product-list" routerLink="women-shoes">
+    <div class="col-12 product-list">
           <button class="side-button products-side-button-left"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
-          <div class="products-part-div">
+          <div class="products-part-div" routerLink="women-shoes">
             <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1000">
                 <div class="circle-div"> 
                     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
@@ -151,9 +151,9 @@
 <!-- men watches part view  -->
 <div class="col-12">
     <p class="part-title">الساعات الرجالية الأكثر مبيعا</p>
-    <div class="col-12 product-list" routerLink="men-watches">
+    <div class="col-12 product-list">
           <button class="side-button products-side-button-left"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
-          <div class="products-part-div">
+          <div class="products-part-div" routerLink="men-watches">
             <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1000">
                 <div class="circle-div"> 
                     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
@@ -186,9 +186,9 @@
 <!-- women watches part view  -->
 <div class="col-12">
     <p class="part-title">الساعات النسائية الأكثر مبيعا</p>
-    <div class="col-12 product-list" routerLink="women-watches">
+    <div class="col-12 product-list">
           <button class="side-button products-side-button-left"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
-          <div class="products-part-div">
+          <div class="products-part-div" routerLink="women-watches">
             <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1000">
                 <div class="circle-div"> 
                     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
@@ -221,9 +221,9 @@
 <!-- bags part view  -->
 <div class="col-12">
     <p class="part-title">الشنط الرجالية والنسائية الأكثر مبيعا</p>
-    <div class="col-12 product-list" routerLink="bags">
+    <div class="col-12 product-list">
           <button class="side-button products-side-button-left"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
-          <div class="products-part-div">
+          <div class="products-part-div" routerLink="bags">
             <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1000">
                 <div class="circle-div"> 
                     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
@@ -256,9 +256,9 @@
 <!-- bags part view  -->
 <div class="col-12">
     <p class="part-title">الاكسسوارات الأكثر مبيعا</p>
-    <div class="col-12 product-list" routerLink="accessoires">
+    <div class="col-12 product-list">
           <button class="side-button products-side-button-left"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
-          <div class="products-part-div">
+          <div class="products-part-div" routerLink="accessoires">
             <div class="card-container text-center"  data-aos="fade-up" data-aos-duration="1000">
                 <div class="circle-div"> 
                     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>

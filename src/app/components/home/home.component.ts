@@ -37,10 +37,10 @@ export class HomeComponent implements OnInit {
   menShoesPartList:any[]=[]; // for view
   allWomenShoesList:any[]=["assets/shirt.jpg","assets/10.png","assets/28.png","assets/30.png","assets/menClothes8.jpg"];
   womenShoesPartList:any[]=[]; // for view
-  allMenAccessoiresList:any[]=["assets/shirt.jpg","assets/10.png","assets/28.png","assets/30.png","assets/menClothes8.jpg"];
-  menAccessoiresPartList:any[]=[]; // for view
-  allWomenAccessoiresList:any[]=["assets/shirt.jpg","assets/10.png","assets/28.png","assets/30.png","assets/menClothes8.jpg"];
-  womenAccessoiresPartList:any[]=[]; // for view
+  allMenWatchesList:any[]=["assets/shirt.jpg","assets/10.png","assets/28.png","assets/30.png","assets/menClothes8.jpg"];
+  menWatchesPartList:any[]=[]; // for view
+  allWomenWatchesList:any[]=["assets/shirt.jpg","assets/10.png","assets/28.png","assets/30.png","assets/menClothes8.jpg"];
+  womenWatchesPartList:any[]=[]; // for view
   allBagsList:any[]=["assets/shirt.jpg","assets/10.png","assets/28.png","assets/30.png","assets/menClothes8.jpg"];
   bagsPartList:any[]=[]; // for view
 
@@ -78,13 +78,19 @@ export class HomeComponent implements OnInit {
   // codes for part images
   setProducts(){
     this.menPartList=[]
+    this.womenPartList=[]
+    this.womenShoesPartList=[]
+    this.womenWatchesPartList=[]
+    this.menShoesPartList=[]
+    this.menWatchesPartList=[]
+    this.menPartList=[]
     for(let i = 0 ; i< 3 ; i++){
       this.menPartList.push(this.allMenList[i]);
       this.womenPartList.push(this.allWomenList[i]);
       this.menShoesPartList.push(this.allMenList[i]);
       this.womenShoesPartList.push(this.allMenList[i]);
-      this.menAccessoiresPartList.push(this.allMenList[i]);
-      this.womenAccessoiresPartList.push(this.allMenList[i]);
+      this.menWatchesPartList.push(this.allMenList[i]);
+      this.womenWatchesPartList.push(this.allMenList[i]);
       this.bagsPartList.push(this.allMenList[i]);
     }
   }
