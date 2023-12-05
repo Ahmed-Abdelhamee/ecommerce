@@ -43,7 +43,8 @@
     margin-left: 5px;
     word-spacing: 3px;
 }
-.active{
+.active,
+.nav-link:hover{
     background-color: #e90404;
     border-radius: 8px;
     // background-color: #eb0b0b;

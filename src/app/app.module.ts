@@ -19,6 +19,7 @@ import { WomenWatchesComponent } from './components/women-watches/women-watches.
 import { BagsComponent } from './components/bags/bags.component';
 import { AccessoiesComponent } from './components/accessoies/accessoies.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { DashloginComponent } from './components/dashlogin/dashlogin.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
     WomenWatchesComponent,
     BagsComponent,
     AccessoiesComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    DashloginComponent
   ],
   imports: [
     BrowserModule,

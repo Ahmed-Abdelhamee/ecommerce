@@ -49,8 +49,9 @@
 @media screen and (max-width:600px) {
     // frist header part
     p.site-title{
-        padding-top: 5vh;
+        padding-top: 1vh;
         font-size: 45px;
+        margin: 0px;
     }
     button.button-Market{
         font-size: 14px;
@@ -59,10 +60,14 @@
         height: 39px;
         width: 39px;
         margin: 25px 10px;
+        margin-bottom: 17px;
     }
     div.icon-circle-div .icon,
     div.icon-circle-div .face{
         font-size: 23px;
+    }
+    div.icon-circle-div a{
+        margin-top: 2px;
     }
     button.button-Market{
         font-size: 14px;
@@ -83,6 +88,7 @@
         top: 25px;
         bottom: 0px;
         width: 100%;
+        width: 73%;
         min-width: auto;
         margin-bottom: 6px;
     }
@@ -100,7 +106,7 @@
         left: 7.5%;
     }
     div.left-image-div div .base-div-image img {
-        width: 45% !important;
+        width: 38% !important;
         left: 3%;
     }
     /* products part*/
@@ -300,27 +306,6 @@
     text-align: center;
     font-size: 18px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
