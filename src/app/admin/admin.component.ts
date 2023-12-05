@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { product } from '../models/interfaces/product.interface';
+import * as $ from 'jquery'
 
 @Component({
   selector: 'app-admin',

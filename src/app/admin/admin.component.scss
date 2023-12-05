@@ -15,6 +15,14 @@
   }
 
   @media screen and (max-width: 600px) {
+    #sidebarMenu{
+      position: relative;
+      top: 0rem;
+      padding-top: 0px;
+    }
+    div.pt-3{
+      padding-top: 0px !important;
+    }
     a.navbar-brand{
       text-align:right;
     }
@@ -75,8 +83,9 @@
     font-weight: 500;
     color: #333;
     text-align: right;
-    padding-top: 10px;
+    margin-top: 4px;
     cursor:pointer;
+    padding: 8px;
   }
   
   .sidebar .nav-link .feather {
@@ -117,7 +126,7 @@
   }
   
   .navbar .navbar-toggler {
-    top: .25rem;
+    top: 15px;
     left: 1rem;
   }
   
