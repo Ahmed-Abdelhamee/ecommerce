@@ -10,6 +10,7 @@ import { WomenShoesComponent } from './components/women-shoes/women-shoes.compon
 import { MenShoesComponent } from './components/men-shoes/men-shoes.component';
 import { WomenClothesComponent } from './components/women-clothes/women-clothes.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+// import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -22,7 +23,7 @@ const routes: Routes = [
   {path:"bags",component:BagsComponent},
   {path:"accessoires",component:AccessoiesComponent},
   {path:"contact-us",component:ContactUsComponent},
-
+  // {path:"admin",component:AdminComponent},  // this admin route link  is working fine
 ];
 
 @NgModule({

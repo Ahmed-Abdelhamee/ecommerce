@@ -20,6 +20,7 @@ import { BagsComponent } from './components/bags/bags.component';
 import { AccessoiesComponent } from './components/accessoies/accessoies.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { DashloginComponent } from './components/dashlogin/dashlogin.component';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { DashloginComponent } from './components/dashlogin/dashlogin.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AdminModule
   ],
   providers: [
     {provide : LocationStrategy , useClass : HashLocationStrategy}

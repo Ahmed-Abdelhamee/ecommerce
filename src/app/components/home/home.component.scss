@@ -13,6 +13,7 @@
     // left header side 
     div.left-image-div div .promo-image {
         width: 113%;
+        width: 100%;
         height: 345px;
         margin-bottom: 35px;
         height: 289px;
@@ -85,7 +86,7 @@
     div.left-image-div div .promo-image{
         margin-left: -1.5%;
         height: 100%;
-        top: 25px;
+        top: 17px;
         bottom: 0px;
         width: 100%;
         width: 73%;
@@ -107,7 +108,7 @@
     }
     div.left-image-div div .base-div-image img {
         width: 38% !important;
-        left: 3%;
+        left: 2%;
     }
     /* products part*/
     div.products-part-div{
@@ -225,14 +226,21 @@
     height:530px;
 }
 .left-image-div div .promo-image{
+    // position: relative;
+    // z-index: 3;
+    // top: 50px;
+    // width: 350px;
+    // margin-left: -24px;
+    // height: 345px;
+    // margin-bottom: 26px;
+    // height: 336px;
     position: relative;
     z-index: 3;
     top: 50px;
-    width: 350px;
+    width: 330px;
     margin-left: -24px;
-    height: 345px;
     margin-bottom: 26px;
-    height: 336px;
+    height: 324px;
 }
 .left-image-div div .base-div-image img{
     position: relative;
@@ -246,9 +254,11 @@
     font-size: 32px;
     color :#d80000;
     left: 73%;
+    // left: 76%;
 }
 .promo-right-arrow-button{
     left: 17.5%;
+    // left: 10.5%;
 }
 
 
