@@ -5,3 +5,21 @@ td{
     width: 50px;
     height: 50px;
 }
+label,
+select,
+input{
+    float: right;
+    font-weight: 500;
+    margin: 5px 0px;
+    text-align: right;
+}
+.btn{
+    font-size: small;
+    margin : 4px 10px;
+    word-break: keep-all;
+}
+.btn-add-product{
+    margin: 5px;
+    margin-bottom: 15px;
+    float: right;
+}

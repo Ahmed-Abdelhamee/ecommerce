@@ -11,6 +11,10 @@
         margin-left: 0px;
         padding: 6px 11px;
         padding-bottom: 6px;
+        text-align: right;
+    }
+    li.nav-item{
+        padding: 1px 5px;
     }
 }
 
@@ -42,6 +46,7 @@
     padding-bottom: 12px;
     margin-left: 5px;
     word-spacing: 3px;
+    text-align: center;
 }
 .active,
 .nav-link:hover{
