@@ -21,6 +21,8 @@ import { AccessoiesComponent } from './components/accessoies/accessoies.componen
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { DashloginComponent } from './components/dashlogin/dashlogin.component';
 import { AdminModule } from './admin/admin.module';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { AdminModule } from './admin/admin.module';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    AdminModule
+    AdminModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [
     {provide : LocationStrategy , useClass : HashLocationStrategy}

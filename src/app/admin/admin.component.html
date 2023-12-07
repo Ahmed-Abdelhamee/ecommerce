@@ -1,8 +1,8 @@
     
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow  direction-rtl">
   <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3">I Style</a>
-  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="عرض/إخفاء لوحة التنقل">
-    <span class="navbar-toggler-icon"></span>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="عرض/إخفاء لوحة التنقل" (click)="toggle()">
+    <span class="navbar-toggler-icon" ></span>
   </button>
   <!-- <input class="form-control form-control-dark w-100" type="text" placeholder="بحث" aria-label="بحث"> -->
   <div class="navbar-nav">
@@ -14,97 +14,90 @@
 
 <div class="container-fluid direction-rtl">
   <div class="row">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+    <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" (click)="typeOfPage='home';arrayToSend=homeProducts">
+          <li class="nav-item" (click)="arrayToSend=homeProducts;">
+            <a class="nav-link active" aria-current="page" (click)="sendPart('home');">
               <span data-feather="home"></span>
               <div class="dropdown">
                 <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                   الصفحة الرئيسية
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item">ملابس رجالي</a></li>
-                  <li><a class="dropdown-item"> الملابس الرجالية </a></li>
-                  <li><a class="dropdown-item">  الملابس النسائية </a></li>
-                  <li><a class="dropdown-item"> احذية رجالية </a></li>
-                  <li><a class="dropdown-item"> احذية نسائية </a></li>
-                  <li><a class="dropdown-item"> ساعات رجالية </a></li>
-                  <li><a class="dropdown-item">  ساعات نسائية</a></li>
-                  <li><a class="dropdown-item"> شنط </a></li>
-                  <li><a class="dropdown-item"> اكسسوارات </a></li>
+                  <li (click)="toggle()"><a class="dropdown-item">ملابس رجالي</a></li>
+                  <li (click)="toggle()"><a class="dropdown-item"> الملابس الرجالية </a></li>
+                  <li (click)="toggle()"><a class="dropdown-item">  الملابس النسائية </a></li>
+                  <li (click)="toggle()"><a class="dropdown-item"> احذية رجالية </a></li>
+                  <li (click)="toggle()"><a class="dropdown-item"> احذية نسائية </a></li>
+                  <li (click)="toggle()"><a class="dropdown-item"> ساعات رجالية </a></li>
+                  <li (click)="toggle()"><a class="dropdown-item">  ساعات نسائية</a></li>
+                  <li (click)="toggle()"><a class="dropdown-item"> شنط </a></li>
+                  <li (click)="toggle()"><a class="dropdown-item"> اكسسوارات </a></li>
                 </ul>
               </div>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" (click)="typeOfPage='men-clothes';arrayToSend=menProducts">
+          <li class="nav-item" (click)="toggle()">
+            <a class="nav-link" (click)="sendPart('men-clothes');arrayToSend=menProducts;">
               <span data-feather="file"></span>
               الملابس الرجالية
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" (click)="typeOfPage='women-clothes'">
+          <li class="nav-item" (click)="toggle()">
+            <a class="nav-link" (click)="sendPart('women-clothes')">
               <span data-feather="shopping-cart"></span>
               الملابس النسائية 
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" (click)="typeOfPage='men-shoes'">
+          <li class="nav-item" (click)="toggle()">
+            <a class="nav-link" (click)="sendPart('men-shoes');">
               <span data-feather="users"></span>
               احذية رجالية
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" (click)="typeOfPage='women-shoes'">
+          <li class="nav-item" (click)="toggle()">
+            <a class="nav-link" (click)="sendPart('women-shoes');">
               <span data-feather="users"></span>
               احذية نسائية
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" (click)="typeOfPage='men-watches'">
+          <li class="nav-item" (click)="toggle()">
+            <a class="nav-link" (click)="sendPart('men-watches')">
               <span data-feather="bar-chart-2"></span>
               ساعات رجالية
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" (click)="typeOfPage='women-watches'">
+          <li class="nav-item" (click)="toggle()">
+            <a class="nav-link" (click)="sendPart('women-watches')">
               <span data-feather="layers"></span>
               ساعات نسائية
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" (click)="typeOfPage='bags'">
+          <li class="nav-item" (click)="toggle()">
+            <a class="nav-link" (click)="sendPart('bags')">
               <span data-feather="layers"></span>
               شنط
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" (click)="typeOfPage='accessoiries'">
+          <li class="nav-item" (click)="toggle()">
+            <a class="nav-link" (click)="sendPart('accessoiries');">
               <span data-feather="layers"></span>
               اكسسوارات
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" (click)="typeOfPage='contact'">
+          <li class="nav-item" (click)="toggle()">
+            <a class="nav-link" (click)="typeOfPage='contact';">
               <span data-feather="layers"></span>
               تواصل
             </a>
           </li>
         </ul>
-
-        
       </div>
     </nav>
-
-
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 pt-3">
-        <app-home-dash [typeOfPage]="typeOfPage" [productsSent]="arrayToSend"></app-home-dash>
-    </main>
   </div>
 </div>
 
-
-
-
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 pt-3">
+  <app-home-dash [typeOfPage]="typeOfPage" [productsSent]="arrayToSend"></app-home-dash>
+</main>

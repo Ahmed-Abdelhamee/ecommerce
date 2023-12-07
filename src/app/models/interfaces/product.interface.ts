@@ -3,6 +3,8 @@ export interface product{
     photoUrl?:string,
     title?:string,
     paragraph?:string,
-    price?:string,
-    discount?:string,
+    price?:number,
+    discount?:number,
+    selectedPage?:string,
+    basicPagePart?:string,
 }
