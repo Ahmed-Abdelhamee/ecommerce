@@ -3,7 +3,7 @@
 
 <!-- Button product modal -->
     <button class="btn btn-primary btn-add-product" (click)="addProductBtn()">اضافة منتج</button>
-    <button class="btn btn-danger btn-add-product" type="button" *ngIf="showParts=='form'" (click)="showParts=typeOfPage">cancel</button>
+    <button class="btn btn-danger btn-add-product" type="button" *ngIf="showParts=='form'" (click)="showParts=typeOfPage;ngOnChanges()">cancel</button>
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"> <i class="bi bi-whatsapp"></i>  تعديل واتساب </button>
   
