@@ -55,8 +55,7 @@ export class AdminComponent implements OnInit {
   }
 
   sendPart(item:string){
-    this.typeOfPage="";
-    setTimeout(() => {   this.typeOfPage=item;  }, .01);
+    this.typeOfPage=item; 
   }
 
 }

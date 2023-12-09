@@ -24,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of productsSent; let i = index"   SelectItem>
+                <tr *ngFor="let item of products; let i = index"   SelectItem>
                     <th>{{i+1}}</th>
                     <td><img [src]="item.photoUrl" alt="" class="product"></td>
                     <td>{{item.title}}</td>
@@ -33,7 +33,7 @@
                     <td>{{item.discount}}</td>
                     <td>
                         <button class="btn btn-warning" (click)="showProductForEdit(item);showParts='form-edit'">edit</button>
-                        <button class="btn btn-danger" (click)="deleteProduct=item;showdelete=true"> X</button>
+                        <button class="btn btn-danger" (click)="deleteProduct=item;showdelete=true;"> X</button>
                     </td>
                 </tr>
             </tbody>
@@ -73,29 +73,29 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="">صورة المنتج</label>
+        <label for="photo">صورة المنتج</label>
         <input type="file" name="photo" id="photo" class="form-control" accept=".jpg , .png , .jpeg , .webp" (change)="uploadPhoto($event)">
         <img [src]="photoPromoURL" class="product" alt="" *ngIf="photoPromoURL">
-        <!-- <small>uploading ...</small> -->
+        <small style="float: left; font-weight: 700;" *ngIf="uploading=='uploadingImage'" >...جاري التحميل </small>
     </div>
     <div class="form-group">
-        <label for="">اسم المنتج</label>
-        <input type="text" class="form-control"  formControlName="title">
+        <label for="title">اسم المنتج</label>
+        <input type="text" class="form-control"  formControlName="title" id="title">
     </div>
     <div class="form-group">
-        <label for="">تفاصيل المنتج</label>
-        <input type="text" class="form-control"  formControlName="paragraph">
+        <label for="paragraph">تفاصيل المنتج</label>
+        <input type="text" class="form-control"  formControlName="paragraph" id="paragraph">
     </div>
     <div class="form-group">
-        <label for="">السعر قبل الخصم</label>
-        <input type="number" class="form-control"  formControlName="price">
+        <label for="price">السعر قبل الخصم</label>
+        <input type="number" class="form-control"  formControlName="price" id="price">
     </div>
     <div class="form-group">
-        <label for="">السعر المطلوب / السعر بعد الخصم </label>
-        <input type="number" class="form-control"  formControlName="discount">
+        <label for="discount">السعر المطلوب / السعر بعد الخصم </label>
+        <input type="number" class="form-control"  formControlName="discount" id="discount">
     </div>
     <div class="text-center">
-        <button type="submit" class="btn" [ngClass]="showParts=='form'? 'btn-primary':'btn-warning'">save</button>
+        <button type="submit" class="btn" [ngClass]="showParts=='form'? 'btn-primary':'btn-warning'"  *ngIf="(uploading=='uploadedImage' && showParts=='form') ||  showParts=='form-edit'">save</button>
     </div>
 </form>
 
@@ -130,7 +130,7 @@
         <p class="deleted-text">{{deleteProduct.paragraph}}</p>
         <p class="deleted-text">{{deleteProduct.price}}</p>
         <p class="deleted-text">{{deleteProduct.discount}}</p>
-        <button class="btn btn-danger m-1" (click)="del(deleteProduct)">delete</button>
+        <button class="btn btn-danger m-1" (click)="del(deleteProduct);">delete</button>
         <button class="btn btn-secondary m-1" (click)="showdelete=false">cancel</button>
     </div>
 </div>

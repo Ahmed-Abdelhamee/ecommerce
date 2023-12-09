@@ -23,6 +23,12 @@ import { DashloginComponent } from './components/dashlogin/dashlogin.component';
 import { AdminModule } from './admin/admin.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import {HttpClientModule} from "@angular/common/http"
+import {AngularFireModule, FIREBASE_OPTIONS} from '@angular/fire/compat'// write this special code for upload img 
 
 @NgModule({
   declarations: [
@@ -49,9 +55,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FontAwesomeModule,
     AdminModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot(), // ToastrModule added
+    ToastrModule.forRoot(),
+    provideFirebaseApp(() => initializeApp(environment.firebase)), provideDatabase(() => getDatabase()), provideStorage(() => getStorage()), // ToastrModule added
+    HttpClientModule
   ],
   providers: [
+    // write this special code for upload img 
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
     {provide : LocationStrategy , useClass : HashLocationStrategy}
   ],
   bootstrap: [AppComponent]

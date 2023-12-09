@@ -2,6 +2,10 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild } 
 import { product } from 'src/app/models/interfaces/product.interface';
 import {FormBuilder} from '@angular/forms'
 import { ToastrService } from 'ngx-toastr';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { DataService } from 'src/app/models/services/data.service';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home-dash',
@@ -11,12 +15,14 @@ import { ToastrService } from 'ngx-toastr';
 export class HomeDashComponent implements OnInit , OnChanges{
   
   @Input() typeOfPage:string="" ;
-  @Input() productsSent:product[]=[] ;
+  // @Input() productsSent:product[]=[] ;
   showParts:string="products";
   showdelete:boolean=false;
   products:product[]=[];
   photoPromoURL:any="";
   deleteProduct:product={};
+  uploading:string="";
+  keyForDeleteOrEdit:string="";
 
   product=this.formBuilder.group({
     id:[new Date().getTime().toString()],
@@ -33,13 +39,21 @@ export class HomeDashComponent implements OnInit , OnChanges{
     whatsapp:[""],
   })
 
-  constructor(private formBuilder:FormBuilder , private toastr:ToastrService) { }
+  constructor(private formBuilder:FormBuilder , private http :HttpClient  , private toastr:ToastrService , private firestorage:AngularFireStorage, private dataServ:DataService) { }
 
   ngOnInit(): void {
   }
   ngOnChanges(): void {
     this.showParts=this.typeOfPage;
     this.showdelete=false;
+    this.products=[]
+    if(this.typeOfPage != "")
+    this.dataServ.getData(this.typeOfPage).subscribe(data =>{
+      for (const key in data) {
+        this.products.push(data[key])
+      }
+    })
+    console.log(this.products)
   }
 
   viewControl(text:string){
@@ -71,22 +85,36 @@ export class HomeDashComponent implements OnInit , OnChanges{
   }
 
   submit(){
-    if( (this.product.get("price")?.value!>this.product.get("discount")?.value!  || this.product.get("price")?.value! ==0 ) &&
-         this.product.get("discount")?.value! !=0 &&
+    if( (this.product.get("price")?.value!>this.product.get("discount")?.value!  || this.product.get("price")?.value! <=0 ) &&
+         this.product.get("discount")?.value! >0 &&
          this.product.get("selectedPage")?.value!='' &&
          this.product.get("title")?.value!='' &&
          this.product.get("paragraph")?.value!='' &&
          this.photoPromoURL!='' )
       {
       this.product.patchValue({
-        photoUrl:this.photoPromoURL
+        photoUrl:this.photoPromoURL,
       })
       if(this.showParts=="form"){
-        console.log(this.product.value);
-        this.toastr.success("تم اضافة المنتج","عملية ناجحة");
+        // to create new id 
+        this.product.patchValue({
+          id:new Date().getTime().toString(),
+        })
+        this.dataServ.create(this.product.value) // send data 
       }else{
-        console.log(this.product.value);
-        this.toastr.warning("تم تعديل المنتج","");
+        // to get product for edit product 
+        this.dataServ.getData(this.product.value.selectedPage!).subscribe(data =>{
+          for (const key in data) {
+            if(this.product.value.id==data[key].id){
+              this.keyForDeleteOrEdit=key;
+              this.http.put(`${environment.firebase.databaseURL}/${data[key].selectedPage}/${key}.json`,this.product.value).subscribe((data)=>{
+                this.toastr.warning("تم تعديل المنتج","");
+                this.ngOnChanges()            
+              })
+              break;
+            }
+          }
+        })
       }
     }else{
       this.toastr.error("راجع بيانات المنتج","خطاء");
@@ -95,12 +123,16 @@ export class HomeDashComponent implements OnInit , OnChanges{
 
 
   // -------------- image uploaded --------------
-  uploadPhoto(event:any){
-    let loader=new FileReader();
-    loader.readAsDataURL(event.target.files[0])
-    loader.onload=(event)=>{
-      this.photoPromoURL=event.target?.result;
+  async uploadPhoto(event:any){
+    this.uploading="uploadingImage";
+    const file=event.target.files[0];
+    if(file){
+      const path=`ecommerce/${file.name}${new Date().getTime()}`; // we make name of file in firebase storage 
+      const uploadTask = await this.firestorage.upload(path,file)
+      const url =await uploadTask.ref.getDownloadURL()
+      this.photoPromoURL=url;
     }
+    this.uploading="uploadedImage";
   }
 
   // -------------- update product --------------
@@ -120,13 +152,24 @@ export class HomeDashComponent implements OnInit , OnChanges{
 
   // -------------- delete product --------------
   del(item:product){
-    console.log(item);
-    this.toastr.success("تم اضافة المنتج","عملية ناجحة");
+    this.dataServ.getData(item.selectedPage!).subscribe(data =>{
+      for (const key in data) {
+        if(item.id==data[key].id){
+          this.keyForDeleteOrEdit=key;
+          this.http.delete(`${environment.firebase.databaseURL}/${data[key].selectedPage}/${key}.json`).subscribe((data)=>{
+            this.toastr.success("تم حذف المنتج","");
+            this.ngOnChanges()            
+          })
+          break;
+        }
+      }
+    })
   }
 
   // update what's app
   submitWhats(){
     console.log(this.whatsapp.value)
+    this.toastr.success("تم تعديل الواتساب","عملية ناجحة");
   }
 
 
