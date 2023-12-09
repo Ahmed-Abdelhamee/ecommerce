@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { product } from '../models/interfaces/product.interface';
 import * as $ from 'jquery'
+import { HomeDashComponent } from './components/home-dash/home-dash.component';
 
 @Component({
   selector: 'app-admin',
@@ -9,9 +10,22 @@ import * as $ from 'jquery'
 })
 export class AdminComponent implements OnInit {
 
-  typeOfPage:any;
-  openLinksListOnPhone:boolean=false;
+  // myVal?:string;
+  //  myFun(data:string)   function will be done on the event   myName
+  // myFun(data:string){
+  //   this.myVal = data;
+  // }
+  // ---------------------------
+  // test view child    this is used 
+  // @ViewChild(HomeDashComponent) myComp?:HomeDashComponent;
+  // getChild(){
+  //   // this.myComp. // any thing we want from the child component
+  // }
+  // ---------------------------
 
+
+  typeOfPage:any = "home";
+  openLinksListOnPhone:boolean=false; // for phone view
   homeProducts:product[]=[
      {id:"1", photoUrl:"assets/accessoires/accessoires1.jpg", title:"product1", paragraph:"paragraph data ", price:60, discount:50},
      {id:"2", photoUrl:"assets/menClothes/1.jpg", title:"product2", paragraph:"paragraph data ", price:160, discount:99},

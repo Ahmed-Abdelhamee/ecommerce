@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild } from '@angular/core';
 import { product } from 'src/app/models/interfaces/product.interface';
 import {FormBuilder} from '@angular/forms'
 import { ToastrService } from 'ngx-toastr';
@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HomeDashComponent implements OnInit , OnChanges{
   
-  @Input() typeOfPage:string="home" ;
+  @Input() typeOfPage:string="" ;
   @Input() productsSent:product[]=[] ;
   showParts:string="products";
   showdelete:boolean=false;
@@ -46,6 +46,15 @@ export class HomeDashComponent implements OnInit , OnChanges{
     this.showParts=text
   }
 
+  selectedPageValue(val:string){
+    if(val!="basic-bage"){
+      this.product.patchValue({
+        basicPagePart:""
+      })
+    }
+  }
+  
+  // -------------- add product --------------
   addProductBtn(){
     this.showParts='form';
     this.photoPromoURL='';
@@ -61,16 +70,14 @@ export class HomeDashComponent implements OnInit , OnChanges{
     })
   }
 
-  selectedPageValue(val:string){
-    if(val!="basic-bage"){
-      this.product.patchValue({
-        basicPagePart:""
-      })
-    }
-  }
-  
   submit(){
-    if( (this.product.get("price")?.value!>this.product.get("discount")?.value!) && this.product.get("price")?.value! !=0 && this.product.get("discount")?.value! !=0 ){
+    if( (this.product.get("price")?.value!>this.product.get("discount")?.value!  || this.product.get("price")?.value! ==0 ) &&
+         this.product.get("discount")?.value! !=0 &&
+         this.product.get("selectedPage")?.value!='' &&
+         this.product.get("title")?.value!='' &&
+         this.product.get("paragraph")?.value!='' &&
+         this.photoPromoURL!='' )
+      {
       this.product.patchValue({
         photoUrl:this.photoPromoURL
       })
@@ -86,10 +93,8 @@ export class HomeDashComponent implements OnInit , OnChanges{
     }
   }
 
-  submitWhats(){
-    console.log(this.whatsapp.value)
-  }
 
+  // -------------- image uploaded --------------
   uploadPhoto(event:any){
     let loader=new FileReader();
     loader.readAsDataURL(event.target.files[0])
@@ -98,6 +103,7 @@ export class HomeDashComponent implements OnInit , OnChanges{
     }
   }
 
+  // -------------- update product --------------
   showProductForEdit(item:product){
     this.product.patchValue({
       id:item.id,
@@ -112,9 +118,25 @@ export class HomeDashComponent implements OnInit , OnChanges{
     this.photoPromoURL=item.photoUrl
   }
 
+  // -------------- delete product --------------
   del(item:product){
     console.log(item);
   }
 
+  // update what's app
+  submitWhats(){
+    console.log(this.whatsapp.value)
+  }
 
+
+
+
+
+  // test output component interaction
+  // using event way to send data  from child to parent
+  // @Output() myName:EventEmitter<string>=new EventEmitter<string>();
+  // sendDataToParent(){
+  //   this.myName.emit("medo from child to parent") // when this event done the data will be sent to [parent component]
+  // }
+  
 }
