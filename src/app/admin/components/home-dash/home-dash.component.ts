@@ -36,6 +36,7 @@ export class HomeDashComponent implements OnInit , OnChanges{
   })
 
   whatsapp=this.formBuilder.group({
+    id:["whatsapp"],
     whatsapp:[""],
   })
 
@@ -67,6 +68,19 @@ export class HomeDashComponent implements OnInit , OnChanges{
       })
     }
   }
+
+  // -------------- product image upload --------------
+  async uploadPhoto(event:any){
+    this.uploading="uploadingImage";
+    const file=event.target.files[0];
+    if(file){
+      const path=`ecommerce/${file.name}${new Date().getTime()}`; // we make name of file in firebase storage 
+      const uploadTask = await this.firestorage.upload(path,file)
+      const url =await uploadTask.ref.getDownloadURL()
+      this.photoPromoURL=url;
+    }
+    this.uploading="uploadedImage";
+  }
   
   // -------------- add product --------------
   addProductBtn(){
@@ -90,49 +104,36 @@ export class HomeDashComponent implements OnInit , OnChanges{
          this.product.get("selectedPage")?.value!='' &&
          this.product.get("title")?.value!='' &&
          this.product.get("paragraph")?.value!='' &&
-         this.photoPromoURL!='' )
+         this.photoPromoURL!='' ) 
       {
-      this.product.patchValue({
-        photoUrl:this.photoPromoURL,
-      })
-      if(this.showParts=="form"){
-        // to create new id 
         this.product.patchValue({
-          id:new Date().getTime().toString(),
+          photoUrl:this.photoPromoURL,
         })
-        this.dataServ.create(this.product.value) // send data 
-      }else{
-        // to get product for edit product 
-        this.dataServ.getData(this.product.value.selectedPage!).subscribe(data =>{
-          for (const key in data) {
-            if(this.product.value.id==data[key].id){
-              this.keyForDeleteOrEdit=key;
-              this.http.put(`${environment.firebase.databaseURL}/${data[key].selectedPage}/${key}.json`,this.product.value).subscribe((data)=>{
-                this.toastr.warning("تم تعديل المنتج","");
-                this.ngOnChanges()            
-              })
-              break;
+        if(this.showParts=="form"){
+          // to create new id 
+          this.product.patchValue({
+            id:new Date().getTime().toString(),
+          })
+          this.dataServ.create(this.product.value) // send data 
+        }else{
+          // -------------- edit product --------------
+          // to get product for edit product 
+          this.dataServ.getData(this.product.value.selectedPage!).subscribe(data =>{
+            for (const key in data) {
+              if(this.product.value.id==data[key].id){
+                this.keyForDeleteOrEdit=key;
+                this.http.put(`${environment.firebase.databaseURL}/${data[key].selectedPage}/${key}.json`,this.product.value).subscribe((data)=>{
+                  this.toastr.warning("تم تعديل المنتج","");
+                  this.ngOnChanges()            
+                })
+                break;
+              }
             }
-          }
-        })
-      }
+          })
+        }
     }else{
       this.toastr.error("راجع بيانات المنتج","خطاء");
     }
-  }
-
-
-  // -------------- image uploaded --------------
-  async uploadPhoto(event:any){
-    this.uploading="uploadingImage";
-    const file=event.target.files[0];
-    if(file){
-      const path=`ecommerce/${file.name}${new Date().getTime()}`; // we make name of file in firebase storage 
-      const uploadTask = await this.firestorage.upload(path,file)
-      const url =await uploadTask.ref.getDownloadURL()
-      this.photoPromoURL=url;
-    }
-    this.uploading="uploadedImage";
   }
 
   // -------------- update product --------------
@@ -166,15 +167,12 @@ export class HomeDashComponent implements OnInit , OnChanges{
     })
   }
 
-  // update what's app
+  //-------------------------------------- what'sapp ---------------------------------------
+
+  //------------------------------------ update what's app ------------------------------------
   submitWhats(){
-    console.log(this.whatsapp.value)
-    this.toastr.success("تم تعديل الواتساب","عملية ناجحة");
+    this.dataServ.updateWhatsapp(this.whatsapp.value)
   }
-
-
-
-
 
   // test output component interaction
   // using event way to send data  from child to parent
