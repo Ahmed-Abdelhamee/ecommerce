@@ -83,13 +83,13 @@ export class HomeDashComponent implements OnInit , OnChanges{
       })
       if(this.showParts=="form"){
         console.log(this.product.value);
-        this.toastr.success("تم اضافة المنتج","error");
+        this.toastr.success("تم اضافة المنتج","عملية ناجحة");
       }else{
         console.log(this.product.value);
-        this.toastr.warning("تم تعديل المنتج","error");
+        this.toastr.warning("تم تعديل المنتج","");
       }
     }else{
-      this.toastr.error("راجع بيانات المنتج","error");
+      this.toastr.error("راجع بيانات المنتج","خطاء");
     }
   }
 
@@ -121,6 +121,7 @@ export class HomeDashComponent implements OnInit , OnChanges{
   // -------------- delete product --------------
   del(item:product){
     console.log(item);
+    this.toastr.success("تم اضافة المنتج","عملية ناجحة");
   }
 
   // update what's app
