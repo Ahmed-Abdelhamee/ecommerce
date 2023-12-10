@@ -6,7 +6,7 @@
                 <h5 class="card-title">{{item.title}}</h5>
                 <p class="card-text">{{item.paragraph}}</p>
                 <p class="card-text"> <span class="text-decoration-line-through" style="padding-right: 7px;" *ngIf="item.price!>0">{{item.price }}</span> <span>{{item.discount! | mycurrency}}</span></p>
-                <a href="https://wa.me/{{temp.whatsapp}}?text=مرحباً اريد الحصول علي هذا المنتج : %0aاسم المنتج%20:%20{{item.title}}%0aتفاصيل المنتج : %20{{item.paragraph}}%0aالسعر المطلوب%20:%20{{item.discount}} د.ك " *ngFor="let temp of whatsapp" target="_blank" class="btn btn-primary">اطلب الان</a>
+                <a href="https://wa.me/{{temp.social}}?text=مرحباً اريد الحصول علي هذا المنتج : %0aاسم المنتج%20:%20{{item.title}}%0aتفاصيل المنتج : %20{{item.paragraph}}%0aالسعر المطلوب%20:%20{{item.discount}} د.ك " *ngFor="let temp of whatsapp" target="_blank" class="btn btn-primary">اطلب الان</a>
             </div>
         </div>
     </div>

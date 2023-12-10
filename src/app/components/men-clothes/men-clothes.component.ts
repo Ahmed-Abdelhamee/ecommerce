@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { product } from 'src/app/models/interfaces/product.interface';
-import { whatsapp } from 'src/app/models/interfaces/whatsapp.interface';
+import { social } from 'src/app/models/interfaces/social.interface';
 import { DataService } from 'src/app/models/services/data.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class MenClothesComponent implements OnInit {
 
   productsList:product[]=[]
 
-  whatsapp:whatsapp[]=[];
+  whatsapp:social[]=[];
 
   constructor(private dataServ:DataService) { 
     dataServ.getData('men-clothes').subscribe(data => {

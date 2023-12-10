@@ -4,7 +4,7 @@ import { product } from '../interfaces/product.interface';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { whatsapp } from '../interfaces/whatsapp.interface';
+import { social} from '../interfaces/social.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -37,12 +37,40 @@ export class DataService {
 
 
   // --------------------- what's app ---------------------
-  getWhatsapp():Observable<whatsapp[]>{
-    return this.http.get<whatsapp[]>(`${environment.firebase.databaseURL}/whatsapp.json`)
+  getWhatsapp():Observable<social[]>{
+    return this.http.get<social[]>(`${environment.firebase.databaseURL}/whatsapp.json`)
+  }
+  getInstagram():Observable<social[]>{
+    return this.http.get<social[]>(`${environment.firebase.databaseURL}/insta.json`)
+  }
+  getSnapChat():Observable<social[]>{
+    return this.http.get<social[]>(`${environment.firebase.databaseURL}/snapchat.json`)
   }
   updateWhatsapp(whats:any){
-    this.http.put(`${environment.firebase.databaseURL}/whatsapp.json`,whats).subscribe((data)=>{
-      this.toastr.warning("تم تعديل الواتساب","عملية ناجحة"); 
+    this.getWhatsapp().subscribe(data=>{
+      for(let key in data){
+        this.http.put(`${environment.firebase.databaseURL}/whatsapp/${key}.json`,whats).subscribe((data)=>{
+          this.toastr.success("تم تعديل الواتساب","عملية ناجحة"); 
+        })
+      }
+    })
+  }
+  updateInstagram(insta:any){
+    this.getInstagram().subscribe(data=>{
+      for(let key in data){
+        this.http.put(`${environment.firebase.databaseURL}/insta/${key}.json`,insta).subscribe((data)=>{
+          this.toastr.error("تم تعديل الانستجرام","عملية ناجحة"); 
+        })
+      }
+    })
+  }
+  updateSnapChat(snapchat:any){
+    this.getSnapChat().subscribe(data=>{
+      for(let key in data){
+        this.http.put(`${environment.firebase.databaseURL}/snapchat/${key}.json`,snapchat).subscribe((data)=>{
+          this.toastr.warning("تم تعديل سناب شات","عملية ناجحة"); 
+        })
+      }
     })
   }
 

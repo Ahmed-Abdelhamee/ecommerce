@@ -36,8 +36,18 @@ export class HomeDashComponent implements OnInit , OnChanges{
   })
 
   whatsapp=this.formBuilder.group({
-    id:["whatsapp"],
-    whatsapp:[""],
+    id:["phone"],
+    social:[""],
+  })
+
+  instagram=this.formBuilder.group({
+    id:["instagram"],
+    social:[""],
+  })
+
+  snapchat=this.formBuilder.group({
+    id:["snapchat"],
+    social:[""],
   })
 
   constructor(private formBuilder:FormBuilder , private http :HttpClient  , private toastr:ToastrService , private firestorage:AngularFireStorage, private dataServ:DataService) { }
@@ -170,6 +180,12 @@ selectedPageValue(val:string){
   //------------------------------------ update what's app ------------------------------------
   submitWhats(){
     this.dataServ.updateWhatsapp(this.whatsapp.value)
+  }
+  submitInstagram(){
+    this.dataServ.updateInstagram(this.instagram.value)
+  }
+  submitSnapChat(){
+    this.dataServ.updateSnapChat(this.snapchat.value)
   }
 
   // test output component interaction

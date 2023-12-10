@@ -6,6 +6,8 @@
     <button class="btn btn-danger btn-add-product" type="button" *ngIf="showParts=='form' || showParts=='form-edit'" (click)="showParts=typeOfPage;ngOnChanges()">cancel</button>
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"> <i class="bi bi-whatsapp"></i>  تعديل واتساب </button>
+<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal2"> <i class="bi bi-snapchat"></i>  تعديل سناب شات </button>
+<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal3"> <i class="bi bi-instagram"></i>  تعديل انستجرام </button>
   
 <!-- products list -->
 <main class="col-md-12 ms-sm-auto col-lg-12 px-md-4" *ngIf="showParts!='form'&& !showdelete &&showParts!='form-edit'">
@@ -111,10 +113,54 @@
                 <form [formGroup]="whatsapp" (ngSubmit)="submitWhats()">
                     <div class="form-group">
                         <label for="whatsapp" class="text-success"> <i class="bi bi-whatsapp"></i>  رقم الواتساب</label>
-                        <input type="text" class="form-control" id="whatsapp" formControlName="whatsapp">
+                        <input type="text" class="form-control" id="whatsapp" formControlName="social">
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-success" data-bs-dismiss="modal">save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- form for what's app -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-2">
+                <form [formGroup]="snapchat" (ngSubmit)="submitSnapChat()">
+                    <div class="form-group">
+                        <label for="snapchat" class="text-warning"> <i class="bi bi-snapchat"></i>  لينك سناب شات</label>
+                        <input type="text" class="form-control" id="snapchat" formControlName="social">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-warning" data-bs-dismiss="modal">save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- form for what's app -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-2">
+                <form [formGroup]="instagram" (ngSubmit)="submitInstagram()">
+                    <div class="form-group">
+                        <label for="instagram" class="text-danger"> <i class="bi bi-instagram"></i>  لينك الانستجرام</label>
+                        <input type="text" class="form-control" id="instagram" formControlName="social">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">save</button>
                     </div>
                 </form>
             </div>
