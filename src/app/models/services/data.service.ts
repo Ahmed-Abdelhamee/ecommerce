@@ -41,7 +41,7 @@ export class DataService {
     return this.http.get<whatsapp[]>(`${environment.firebase.databaseURL}/whatsapp.json`)
   }
   updateWhatsapp(whats:any){
-    this.http.post(`${environment.firebase.databaseURL}/whatsapp.json`,whats).subscribe((data)=>{
+    this.http.put(`${environment.firebase.databaseURL}/whatsapp.json`,whats).subscribe((data)=>{
       this.toastr.warning("تم تعديل الواتساب","عملية ناجحة"); 
     })
   }

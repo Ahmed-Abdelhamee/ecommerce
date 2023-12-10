@@ -6,6 +6,7 @@ import {faChevronRight ,faChevronLeft} from "@fortawesome/free-solid-svg-icons"
 
 import * as Aos from 'aos';
 import * as $ from 'jquery';
+import { DataService } from 'src/app/models/services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -29,7 +30,7 @@ export class HomeComponent implements OnInit {
   // ----------------------------------
 
   // Arrays of parts
-  allMenClothesList:any[]=["assets/shirt.jpg","assets/10.png","assets/28.png","assets/29.png","assets/menClothes8.jpg"];
+  allMenClothesList:any[]=[];
   menClothesPartList:any[]=[]; // for view
   
   allWomenClothesList:any[]=["assets/dress7.jpg","assets/dress8.jpg","assets/dress9.jpg","assets/womenClothes/2.jpg","assets/menClothes8.jpg"];
@@ -54,9 +55,16 @@ export class HomeComponent implements OnInit {
   accessoiresPartList:any[]=[]; // for view
 
 
-  constructor() { 
+  constructor(private dataServ:DataService) { 
     this.thePromo="assets/28.png";
-    setTimeout(()=> this.intervalControlVal = setInterval(()=> this.intervalControl(),4000) , 10000 )
+    setTimeout(()=> this.intervalControlVal = setInterval(()=> this.intervalControl(),4000) , 10000 );
+
+    dataServ.getData("basic-page-men-clothes").subscribe(data =>{
+      for (const key in data) {
+        this.allMenClothesList.push(data[key])
+      }
+    })
+
   }
 
   ngOnInit(): void {
