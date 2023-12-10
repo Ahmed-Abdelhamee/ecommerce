@@ -54,15 +54,11 @@ export class HomeDashComponent implements OnInit , OnChanges{
         this.products.push(data[key])
       }
     })
-    console.log(this.products)
   }
 
-  viewControl(text:string){
-    this.showParts=text
-  }
-
-  selectedPageValue(val:string){
-    if(val!="basic-bage"){
+// <!-- select page function for adding products  -->
+selectedPageValue(val:string){
+    if(!val.includes("basic-page")){
       this.product.patchValue({
         basicPagePart:""
       })
@@ -117,12 +113,13 @@ export class HomeDashComponent implements OnInit , OnChanges{
           this.dataServ.create(this.product.value) // send data 
         }else{
           // -------------- edit product --------------
-          // to get product for edit product 
-          this.dataServ.getData(this.product.value.selectedPage!).subscribe(data =>{
+          // to get product for editing 
+/* this variable for identify which data will be edit */ let checkBasicPage=this.product.value.selectedPage! == "basic-page"? `${this.product.value.selectedPage!}-${this.product.value.basicPagePart!}`:`${this.product.value.selectedPage!}`;
+          this.dataServ.getData(checkBasicPage).subscribe(data =>{
             for (const key in data) {
               if(this.product.value.id==data[key].id){
                 this.keyForDeleteOrEdit=key;
-                this.http.put(`${environment.firebase.databaseURL}/${data[key].selectedPage}/${key}.json`,this.product.value).subscribe((data)=>{
+                  this.http.put(`${environment.firebase.databaseURL}/${checkBasicPage}/${key}.json`,this.product.value).subscribe((data)=>{
                   this.toastr.warning("تم تعديل المنتج","");
                   this.ngOnChanges()            
                 })
@@ -153,11 +150,12 @@ export class HomeDashComponent implements OnInit , OnChanges{
 
   // -------------- delete product --------------
   del(item:product){
-    this.dataServ.getData(item.selectedPage!).subscribe(data =>{
+/* this variable for identify which data will be edit */ let checkBasicPage=item.selectedPage! == "basic-page"? `${item.selectedPage!}-${item.basicPagePart!}`:`${item.selectedPage!}`;
+    this.dataServ.getData(checkBasicPage).subscribe(data =>{
       for (const key in data) {
         if(item.id==data[key].id){
           this.keyForDeleteOrEdit=key;
-          this.http.delete(`${environment.firebase.databaseURL}/${data[key].selectedPage}/${key}.json`).subscribe((data)=>{
+          this.http.delete(`${environment.firebase.databaseURL}/${checkBasicPage}/${key}.json`).subscribe((data)=>{
             this.toastr.success("تم حذف المنتج","");
             this.ngOnChanges()            
           })

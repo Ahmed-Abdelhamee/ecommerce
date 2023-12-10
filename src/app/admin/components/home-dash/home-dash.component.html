@@ -3,7 +3,7 @@
 
 <!-- Button product modal -->
     <button class="btn btn-primary btn-add-product" (click)="addProductBtn()">اضافة منتج</button>
-    <button class="btn btn-danger btn-add-product" type="button" *ngIf="showParts=='form'" (click)="showParts=typeOfPage;ngOnChanges()">cancel</button>
+    <button class="btn btn-danger btn-add-product" type="button" *ngIf="showParts=='form' || showParts=='form-edit'" (click)="showParts=typeOfPage;ngOnChanges()">cancel</button>
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"> <i class="bi bi-whatsapp"></i>  تعديل واتساب </button>
   
@@ -47,7 +47,7 @@
         <div class="form-group">
             <label for="page">اختر الصفحة </label>
             <select name="page" id="page" class="form-select" formControlName="selectedPage" #pageValue (change)="selectedPageValue(pageValue.value)">
-                <option value="basic-bage">الصفحة الرئيسية</option>
+                <option value="basic-page">الصفحة الرئيسية</option>
                 <option value="men-clothes">ملابس رجالي</option>
                 <option value="women-clothes">ملابس حريمي</option>
                 <option value="men-shoes">احذية رجالي</option>
@@ -59,8 +59,8 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="basicPageValue" class="text-warning" *ngIf="pageValue.value=='basic-bage'">اختر القسم بالصفحة الرئيسية</label>
-            <select name="basicPageValue" id="basicPageValue" class="form-select" formControlName="basicPageValue" *ngIf="pageValue.value=='basic-bage'">
+            <label for="basicPagePart" class="text-warning" *ngIf="pageValue.value=='basic-page'">اختر القسم بالصفحة الرئيسية</label>
+            <select name="basicPagePart" id="basicPagePart" class="form-select" formControlName="basicPagePart" *ngIf="pageValue.value=='basic-page'">
                 <option value="men-clothes">ملابس رجالي</option>
                 <option value="women-clothes">ملابس حريمي</option>
                 <option value="men-shoes">احذية رجالي</option>

@@ -11,27 +11,31 @@ import { whatsapp } from '../interfaces/whatsapp.interface';
 })
 export class DataService {
 
-  constructor(private http :HttpClient , private toastr:ToastrService) {
-   }
+  constructor( private http : HttpClient , private toastr : ToastrService ) { }
 
-   getData(selectedPage:string):Observable<product[]>{
+  getData(selectedPage:string):Observable<product[]>{
     return this.http.get<product[]>(`${environment.firebase.databaseURL}/${selectedPage}.json`)
    }
 
   create(product:any){
-    this.http.post(`${environment.firebase.databaseURL}/${product.selectedPage}.json`,product).subscribe((data)=>{
-      this.toastr.success("تم اضافة المنتج","عملية ناجحة"); 
-    })
+/* this variable for identify which data will be edit */ let checkBasicPage=product.selectedPage! == "basic-page"? `${product.selectedPage!}-${product.basicPagePart!}`:`${product.selectedPage!}`;
+      this.http.post(`${environment.firebase.databaseURL}/${checkBasicPage}.json`,product).subscribe((data)=>{
+        this.toastr.success("تم اضافة المنتج","عملية ناجحة"); 
+      })
   }
 
-  deleteItem(product:any,key:string){
-    this.http.delete(`${environment.firebase.databaseURL}/${product.selectedPage}/${key}.json`).subscribe((data)=>{
-      this.toastr.success("تم حذف المنتج","");
-    })
-  }
+//   deleteItem(product:any,key:string){
+// /* this variable for identify which data will be edit */ let checkBasicPage=product.selectedPage! == "basic-page"? `${product.selectedPage!}-${product.basicPagePart!}`:`${product.selectedPage!}`;
+//     this.http.delete(`${environment.firebase.databaseURL}/${checkBasicPage}/${key}.json`).subscribe((data)=>{
+//       this.toastr.success("تم حذف المنتج","");
+//     })
+//   }
 
-
+  // -------------------------- note that update is working in the Component.ts directly -----------------------
   
+
+
+
   // --------------------- what's app ---------------------
   getWhatsapp():Observable<whatsapp[]>{
     return this.http.get<whatsapp[]>(`${environment.firebase.databaseURL}/whatsapp.json`)
