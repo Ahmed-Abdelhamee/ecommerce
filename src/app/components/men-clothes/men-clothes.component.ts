@@ -15,16 +15,9 @@ export class MenClothesComponent implements OnInit {
   whatsapp:social[]=[];
 
   constructor(private dataServ:DataService) { 
-    dataServ.getData('men-clothes').subscribe(data => {
-      for(let key in data)
-      this.productsList.push(data[key])
-    })
+    this.productsList=dataServ.getProducts("men-clothes");
     // get whatsapp
-    dataServ.getWhatsapp().subscribe(data=>{
-      for (const key in data) {
-        this.whatsapp.push(data[key]);
-      }
-    })
+    this.whatsapp=dataServ.returnSoical("whatsapp");
   }
 
   ngOnInit(): void {

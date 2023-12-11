@@ -17,6 +17,16 @@ export class DataService {
     return this.http.get<product[]>(`${environment.firebase.databaseURL}/${selectedPage}.json`)
    }
 
+   getProducts(selectedPage:string):product[]{
+    let productList:product[]=[];
+    this.getData(selectedPage).subscribe(data =>{
+      for (const key in data) {
+        productList.push(data[key])
+      }
+    })
+    return productList;
+   }
+
   create(product:any){
 /* this variable for identify which data will be edit */ let checkBasicPage=product.selectedPage! == "basic-page"? `${product.selectedPage!}-${product.basicPagePart!}`:`${product.selectedPage!}`;
       this.http.post(`${environment.firebase.databaseURL}/${checkBasicPage}.json`,product).subscribe((data)=>{
@@ -31,12 +41,13 @@ export class DataService {
 //     })
 //   }
 
-  // -------------------------- note that update is working in the Component.ts directly -----------------------
+  
+  // -------------------------- note that update & delete is working in the Component.ts directly -----------------------
   
 
 
 
-  // --------------------- what's app ---------------------
+  // --------------------- social  app ---------------------
   getWhatsapp():Observable<social[]>{
     return this.http.get<social[]>(`${environment.firebase.databaseURL}/whatsapp.json`)
   }
@@ -45,6 +56,18 @@ export class DataService {
   }
   getSnapChat():Observable<social[]>{
     return this.http.get<social[]>(`${environment.firebase.databaseURL}/snapchat.json`)
+  }
+  getSocialAPI(socialtype:string):Observable<social[]>{
+    return this.http.get<social[]>(`${environment.firebase.databaseURL}/${socialtype}.json`)
+  }
+  returnSoical(social:string):social[]{
+    let arr:social[]=[];
+    this.getSocialAPI(social).subscribe(data=>{
+      for (const key in data) {
+        arr.push(data[key]);
+      }
+    })
+    return arr;
   }
   updateWhatsapp(whats:any){
     this.getWhatsapp().subscribe(data=>{

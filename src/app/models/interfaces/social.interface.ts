@@ -1,4 +1,4 @@
 export interface social{
-    id?:string,
-    social?:string,
+    id:string,
+    social:string,
 }
