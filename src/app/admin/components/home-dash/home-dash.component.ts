@@ -6,6 +6,8 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { DataService } from 'src/app/models/services/data.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Feedback } from 'src/app/models/interfaces/feedback.interface';
+import * as $ from 'jquery'
 
 @Component({
   selector: 'app-home-dash',
@@ -23,6 +25,8 @@ export class HomeDashComponent implements OnInit , OnChanges{
   deleteProduct:product={};
   uploading:string="";
   keyForDeleteOrEdit:string="";
+  feedback:Feedback[]=[];
+  del_ID:string="";
 
   product=this.formBuilder.group({
     id:[new Date().getTime().toString()],
@@ -57,17 +61,22 @@ export class HomeDashComponent implements OnInit , OnChanges{
   ngOnChanges(): void {
     this.showParts=this.typeOfPage;
     this.showdelete=false;
-    this.products=[]
+    this.products=[];
+    this.feedback=[]
     if(this.typeOfPage != "")
-    this.dataServ.getData(this.typeOfPage).subscribe(data =>{
-      for (const key in data) {
-        this.products.push(data[key])
-      }
-    })
+    this.products=this.dataServ.getProducts(this.typeOfPage);
+    // for get feedback
+    if(this.typeOfPage == "contact-us"){
+    this.dataServ.getFeedback().subscribe(data =>{
+        for (const key in data) {
+          this.feedback.push(data[key])
+        }
+      })
+  }
   }
 
-// <!-- select page function for adding products  -->
-selectedPageValue(val:string){
+  // <!-- select page function for adding products  -->
+  selectedPageValue(val:string){
     if(!val.includes("basic-page")){
       this.product.patchValue({
         basicPagePart:""
@@ -103,7 +112,7 @@ selectedPageValue(val:string){
       discount:0,
     })
   }
-
+  // submit customer products
   submit(){
     if( (this.product.get("price")?.value!>this.product.get("discount")?.value!  || this.product.get("price")?.value! <=0 ) &&
          this.product.get("discount")?.value! >0 &&
@@ -125,7 +134,7 @@ selectedPageValue(val:string){
           // -------------- edit product --------------
           // to get product for editing 
 /* this variable for identify which data will be edit */ let checkBasicPage=this.product.value.selectedPage! == "basic-page"? `${this.product.value.selectedPage!}-${this.product.value.basicPagePart!}`:`${this.product.value.selectedPage!}`;
-          this.dataServ.getData(checkBasicPage).subscribe(data =>{
+          this.dataServ.getDataAPI(checkBasicPage).subscribe(data =>{
             for (const key in data) {
               if(this.product.value.id==data[key].id){
                 this.keyForDeleteOrEdit=key;
@@ -161,7 +170,7 @@ selectedPageValue(val:string){
   // -------------- delete product --------------
   del(item:product){
 /* this variable for identify which data will be edit */ let checkBasicPage=item.selectedPage! == "basic-page"? `${item.selectedPage!}-${item.basicPagePart!}`:`${item.selectedPage!}`;
-    this.dataServ.getData(checkBasicPage).subscribe(data =>{
+    this.dataServ.getDataAPI(checkBasicPage).subscribe(data =>{
       for (const key in data) {
         if(item.id==data[key].id){
           this.keyForDeleteOrEdit=key;
@@ -188,11 +197,24 @@ selectedPageValue(val:string){
     this.dataServ.updateSnapChat(this.snapchat.value)
   }
 
-  // test output component interaction
-  // using event way to send data  from child to parent
-  // @Output() myName:EventEmitter<string>=new EventEmitter<string>();
-  // sendDataToParent(){
-  //   this.myName.emit("medo from child to parent") // when this event done the data will be sent to [parent component]
-  // }
+
+// ------------------------------------- delete contact us -------------------------------------
+
+deleteFeedback(item:any){
+  this.dataServ.getFeedback().subscribe(data =>{
+    for (const key in data) {
+      if(data[key].id==item.id){
+        this.del_ID=data[key].id;
+        this.dataServ.delete("feedback",key).subscribe(()=>{
+          this.toastr.success("تم حذف رسالة العميل","");
+        });
+        break;
+      }
+    }
+    $(`#contact-us-${item.id}`).hide()
+  })
+}
+
+
   
 }

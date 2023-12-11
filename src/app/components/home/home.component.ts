@@ -73,63 +73,25 @@ export class HomeComponent implements OnInit {
 
   constructor(private dataServ:DataService) { 
     this.thePromo="assets/28.png";
-    setTimeout(()=> this.intervalControlVal = setInterval(()=> this.intervalControl(),4000) , 10000 );
-
+    /* make promo wait */ setTimeout(()=> this.intervalControlVal = setInterval(()=> this.intervalControl(),4000) , 10000 );
     // ----------------------- get whatsapp -----------------------
-    dataServ.getWhatsapp().subscribe(data=>{
-      for (const key in data) {
-        this.whatsapp.push(data[key]);
-      }
-    })
+    this.whatsapp=dataServ.returnSoical("whatsapp");
     // ----------------------- get instagram -----------------------
-    dataServ.getInstagram().subscribe(data=>{
-      for (const key in data) {
-        this.instagram.push(data[key]);
-      }
-    })
+    this.instagram=dataServ.returnSoical("insta");
     // ----------------------- get snapchat -----------------------
-    dataServ.getSnapChat().subscribe(data=>{
-      for (const key in data) {
-        this.snapchat.push(data[key]);
-      }
-    })
-    // ----------------------------------- get data for basic page -----------------------------------
-    dataServ.getData("basic-page-men-clothes").subscribe(data =>{
-      for (const key in data) {
-        this.allMenClothesList.push(data[key])
-      }
-    })
-    dataServ.getData("basic-page-women-clothes").subscribe(data =>{
-      for (const key in data) {
-        this.allWomenClothesList.push(data[key])
-      }
-    })
-    dataServ.getData("basic-page-men-shoes").subscribe(data =>{
-      for (const key in data) {
-        this.allMenShoesList.push(data[key])
-      }
-    })
-    dataServ.getData("basic-page-women-shoes").subscribe(data =>{
-      for (const key in data) {
-        this.allWomenShoesList.push(data[key])
-      }
-    })
-    dataServ.getData("basic-page-men-watches").subscribe(data =>{
-      for (const key in data) {
-        this.allMenWatchesList.push(data[key])
-      }
-    })
-    dataServ.getData("basic-page-women-watches").subscribe(data =>{
-      for (const key in data) {
-        this.allWomenWatchesList.push(data[key])
-      }
-    })
-    dataServ.getData("basic-page-bags").subscribe(data =>{
-      for (const key in data) {
-        this.allBagsList.push(data[key])
-      }
-    })
-    dataServ.getData("basic-page-accessoires").subscribe(data =>{
+    this.snapchat=dataServ.returnSoical("snapchat");
+    // ----------------------------------- get all data for basic page -----------------------------------
+    this.allMenClothesList=dataServ.getProducts("basic-page-men-clothes");
+    this.allWomenClothesList=dataServ.getProducts("basic-page-women-clothes");
+    this.allMenShoesList=dataServ.getProducts("basic-page-men-shoes");
+    this.allWomenShoesList=dataServ.getProducts("basic-page-women-shoes");
+    this.allMenWatchesList=dataServ.getProducts("basic-page-men-watches");
+    this.allWomenWatchesList=dataServ.getProducts("basic-page-women-watches");
+    this.allBagsList=dataServ.getProducts("basic-page-bags");
+//  we get basic-page-accessoires from  getDataAPI directly ,
+//  which will take a small time untill compeleted the for loop and it helps us to make sure that :
+//  the all prodcut lists be filled before we get the frist 3 product
+    dataServ.getDataAPI("basic-page-accessoires").subscribe(data =>{
       for (const key in data) {
         this.allAccessoiresList.push(data[key])
       }

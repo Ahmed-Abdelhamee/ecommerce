@@ -18,7 +18,7 @@ export class AppComponent {
   constructor(private route:Router, private dataServ:DataService){
     route.events.subscribe(val =>{
       if(val instanceof NavigationEnd){
-        if(val.url.includes("admin") || val.url.endsWith("ecommerce-login-dash-2023#")){
+        if((val.url.includes("admin") && sessionStorage.getItem("Admin") == "you is admin") || val.url.endsWith("ecommerce-login-dash-2023#")){
           this.showHeader=false;
         }else{
           this.showHeader=true;
@@ -26,11 +26,8 @@ export class AppComponent {
       }
     })
     // ----------------------- get whatsapp -----------------------
-    dataServ.getWhatsapp().subscribe(data=>{
-      for (const key in data) {
-        this.whatsapp.push(data[key]);
-      }
-    })
+    this.whatsapp=dataServ.returnSoical("whatsapp");
+
   }
 
   
