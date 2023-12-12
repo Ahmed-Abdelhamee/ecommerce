@@ -82,12 +82,31 @@ export class DataService {
     this.http.post(`${environment.firebase.databaseURL}/feedback.json`,data).subscribe(()=>{ });
   }
   // get  Feedback
-  getFeedback():Observable<Feedback[]>{
+  getFeedbackAPI():Observable<Feedback[]>{
     return this.http.get<Feedback[]>(`${environment.firebase.databaseURL}/feedback.json`)
   }
+  getFeedback():Feedback[]{
+    let Feedback:Feedback[]=[]
+    this.http.get<Feedback[]>(`${environment.firebase.databaseURL}/feedback.json`).subscribe(data =>{
+      for (const key in data) {
+        Feedback.push(data[key])
+      }
+    })
+    return Feedback
+  }
+
   //------------------------------------------------------------------------------
   // delete the data
-  delete(position:string,key:string){
-    return this.http.delete(`${environment.firebase.databaseURL}/${position}/${key}.json`)
+  delete(item:Feedback){
+    this.getFeedbackAPI().subscribe(data =>{
+      for (const key in data) {
+        if(data[key].id==item.id){
+          this.http.delete(`${environment.firebase.databaseURL}/feedback/${key}.json`).subscribe(()=>{
+            this.toastr.success("تم حذف رسالة العميل","");
+          });
+          break;
+        }
+      }
+    })
   }
 }

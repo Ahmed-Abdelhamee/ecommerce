@@ -185,10 +185,10 @@
 <div class="col-12" *ngIf="showParts=='contact-us'">
     <h4 class="text-center"> --- contact us messages ---</h4>
     <div class="row">
-        <div class="col-sm-3 card m-1" *ngFor="let item of feedback" id="contact-us-{{item.id}}">
+        <div class="col-sm-3 card m-1 feedback-card" *ngFor="let item of feedback" id="contact-us-{{item.id}}">
             <p><span>First Name : </span>{{item.Fname}}</p>
             <p><span>Last Name : </span>{{item.Lname}}</p>
-            <p><span>Email : </span>{{item.email}}</p>
+            <p class="email"><span>Email : </span>{{item.email}}</p>
             <p><span>Phone : </span>{{item.phone}}</p>
             <p><span>id : </span>{{item.id}}</p>
             <textarea name="msg" class="form-control" id="msg" cols="30" rows="5" [value]="item.msg"></textarea>

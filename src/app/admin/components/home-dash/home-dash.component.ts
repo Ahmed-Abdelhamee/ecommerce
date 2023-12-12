@@ -67,11 +67,7 @@ export class HomeDashComponent implements OnInit , OnChanges{
     this.products=this.dataServ.getProducts(this.typeOfPage);
     // for get feedback
     if(this.typeOfPage == "contact-us"){
-    this.dataServ.getFeedback().subscribe(data =>{
-        for (const key in data) {
-          this.feedback.push(data[key])
-        }
-      })
+      this.feedback=this.dataServ.getFeedback()
   }
   }
 
@@ -200,19 +196,9 @@ export class HomeDashComponent implements OnInit , OnChanges{
 
 // ------------------------------------- delete contact us -------------------------------------
 
-deleteFeedback(item:any){
-  this.dataServ.getFeedback().subscribe(data =>{
-    for (const key in data) {
-      if(data[key].id==item.id){
-        this.del_ID=data[key].id;
-        this.dataServ.delete("feedback",key).subscribe(()=>{
-          this.toastr.success("تم حذف رسالة العميل","");
-        });
-        break;
-      }
-    }
-    $(`#contact-us-${item.id}`).hide()
-  })
+deleteFeedback(item:Feedback){
+ this.dataServ.delete(item);
+ $(`#contact-us-${item.id}`).hide()
 }
 
 
