@@ -17,7 +17,8 @@ import { DataService } from 'src/app/models/services/data.service';
 })
 export class HomeComponent implements OnInit {
 
-  promoListPhoto:string[]=["assets/28.png" , "assets/29.png" , "assets/30.png" , "assets/31.png" , "assets/32.png" , "assets/33.png" , "assets/34.png" , "assets/35.png" , "assets/36.png" , "assets/37.png" , "assets/38.png"]
+  // promoListPhoto:string[]=["assets/28.png" , "assets/29.png" , "assets/30.png" , "assets/31.png" , "assets/32.png" , "assets/33.png" , "assets/34.png" , "assets/35.png" , "assets/36.png" , "assets/37.png" , "assets/38.png"]
+  promoListPhoto:string[]=["assets/03.png" , "assets/34.png" , "assets/32.png" , "assets/36.png" , "assets/01.png" , "assets/02.png"]
   thePromo="";
   // for direction changing 
   intervalControlVal:any =""
@@ -72,7 +73,7 @@ export class HomeComponent implements OnInit {
   snapchat:social[]=[]
 
   constructor(private dataServ:DataService) { 
-    this.thePromo="assets/28.png";
+    this.thePromo="assets/03.png";
     /* make promo wait */ setTimeout(()=> this.intervalControlVal = setInterval(()=> this.intervalControl(),4000) , 10000 );
     // ----------------------- get whatsapp -----------------------
     this.whatsapp=dataServ.returnSoical("whatsapp");
@@ -81,22 +82,50 @@ export class HomeComponent implements OnInit {
     // ----------------------- get snapchat -----------------------
     this.snapchat=dataServ.returnSoical("snapchat");
     // ----------------------------------- get all data for basic page -----------------------------------
-    this.allMenClothesList=dataServ.getProducts("basic-page-men-clothes");
-    this.allWomenClothesList=dataServ.getProducts("basic-page-women-clothes");
-    this.allMenShoesList=dataServ.getProducts("basic-page-men-shoes");
-    this.allWomenShoesList=dataServ.getProducts("basic-page-women-shoes");
-    this.allMenWatchesList=dataServ.getProducts("basic-page-men-watches");
-    this.allWomenWatchesList=dataServ.getProducts("basic-page-women-watches");
-    this.allBagsList=dataServ.getProducts("basic-page-bags");
-//  we get basic-page-accessoires from  getDataAPI directly ,
-//  which will take a small time untill compeleted the for loop and it helps us to make sure that :
-//  the all prodcut lists be filled before we get the frist 3 product
+    dataServ.getDataAPI("basic-page-women-clothes").subscribe(data =>{
+      for (const key in data) {
+        this.allWomenClothesList.push(data[key])
+      }
+    });
+    dataServ.getDataAPI("basic-page-women-shoes").subscribe(data =>{
+      for (const key in data) {
+        this.allWomenShoesList.push(data[key])
+      }
+    });
+    dataServ.getDataAPI("basic-page-women-watches").subscribe(data =>{
+      for (const key in data) {
+        this.allWomenWatchesList.push(data[key])
+      }
+    });
+    dataServ.getDataAPI("basic-page-bags").subscribe(data =>{
+      for (const key in data) {
+        this.allBagsList.push(data[key])
+      }
+    });
     dataServ.getDataAPI("basic-page-accessoires").subscribe(data =>{
       for (const key in data) {
         this.allAccessoiresList.push(data[key])
       }
-      this.setProducts()
-    })
+    });
+    // in the last functions we used   async / wait   to make pause for geting items view untill all data be loaded
+    dataServ.getDataAPI("basic-page-men-clothes").subscribe( async data =>{
+      for (const key in data) {
+        this.allMenClothesList.push(data[key])
+      }
+      await this.setProducts()
+    });
+    dataServ.getDataAPI("basic-page-men-shoes").subscribe(async data =>{
+      for (const key in data) {
+        this.allMenShoesList.push(data[key])
+      }
+      await this.setProducts()
+    });
+    this.dataServ.getDataAPI("basic-page-men-watches").subscribe(async data =>{
+      for (const key in data) {
+        this.allMenWatchesList.push(data[key])
+      }
+      await this.setProducts()
+    });
   }
 
   ngOnInit(): void {

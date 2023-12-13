@@ -32,25 +32,6 @@
         </div>
     </div>
 </div>
-<!-- men part view  -->
-<div class="col-12">
-    <p class="part-title">المنتجات الرجاليه الأكثر مبيعا</p>
-    <p class="paragraph-part"></p>
-    <div class="col-12 product-list">
-          <button class="side-button products-side-button-left" (click)="moveProducts('left-men-clothes-btn')"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
-          <div class="products-part-div" id="menClothessPartDiv" >
-            <div class="card-container text-center" routerLink="men-clothes" data-aos="fade-up" data-aos-duration="1000" *ngFor="let item of menClothesPartList; let i=index">
-                <div class="circle-div"> 
-                    <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
-                        <img [src]="item.photoUrl" alt="" >
-                    </div>
-                <p class="product-title">{{item.title}}</p>
-                <p class="price">{{item.discount! | mycurrency}}</p>
-            </div>
-          </div>
-          <button class="side-button products-side-button-right" (click)="moveProducts('right-men-clothes-btn')"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
-    </div>
-</div>
 
 <!-- women part view  -->
 <div class="col-12">
@@ -70,32 +51,6 @@
         <button class="side-button products-side-button-right" (click)="moveProducts('right-women-clothes-btn')"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
     </div>
 
-<!-- men shoes part view  -->
-<div class="col-12">
-    <!-- <div class="promo-part-shoes">
-        <img src="assets/Artboard 11.png" alt="" class="bg-shoes-img">
-        <p class="part-title"  data-aos="fade-up" data-aos-duration="1500">احذية رجالي</p>
-        <p class="part-paragraph"   data-aos="fade-up" data-aos-duration="2000">موقع يتيح لك المنتجات التجارية بصورة احترافية كأن عينيك تشاهدة ويوفر لك جميع المنتجات ويعرض أهمها والاكثر قبولا و باقة من اقوي الخصومات و المنتجات العالية الجودة </p>
-        <div class="text-center">
-            <button class="button-Market">تسوق الآن</button>
-        </div>
-    </div> -->
-    <p class="part-title">الاحذية الرجالية الأكثر مبيعا</p>.
-    <div class="col-12 product-list">
-          <button class="side-button products-side-button-left" (click)="moveProducts('left-men-shoes-btn')"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
-          <div class="products-part-div" id="menShoesPartDiv">
-            <div class="card-container text-center" routerLink="men-shoes" data-aos="fade-up" data-aos-duration="1000" *ngFor="let item of menShoesPartList; let i=index">
-                <div class="circle-div"> 
-                    <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
-                     <img [src]="item.photoUrl" alt="">
-                 </div>
-                <p class="product-title">{{item.title}}</p>
-                <p class="price">{{item.discount! | mycurrency}}</p>
-            </div>
-          </div>
-          <button class="side-button products-side-button-right" (click)="moveProducts('right-men-shoes-btn')"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
-    </div>
-</div>
 
 <!-- women shoes part view  -->
 <div class="col-12">
@@ -113,25 +68,6 @@
             </div>
           </div>
           <button class="side-button products-side-button-right" (click)="moveProducts('right-women-shoes-btn')"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
-    </div>
-</div>
-
-<!-- men watches part view  -->
-<div class="col-12">
-    <p class="part-title">الساعات الرجالية الأكثر مبيعا</p>
-    <div class="col-12 product-list">
-          <button class="side-button products-side-button-left" (click)="moveProducts('left-men-watches-btn')"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
-          <div class="products-part-div" id="menWatchesPartDiv">
-            <div class="card-container text-center" routerLink="men-watches" data-aos="fade-up" data-aos-duration="1000" *ngFor="let item of menWatchesPartList; let i=index">
-                <div class="circle-div"> 
-                    <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
-                     <img [src]="item.photoUrl" alt="">
-                 </div>
-                <p class="product-title">{{item.title}}</p>
-                <p class="price">{{item.discount! | mycurrency}}</p>
-            </div>
-          </div>
-          <button class="side-button products-side-button-right" (click)="moveProducts('right-men-watches-btn')"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
     </div>
 </div>
 
@@ -154,6 +90,25 @@
     </div>
 </div>
 
+<!-- accessoires view  -->
+<div class="col-12">
+    <p class="part-title">الاكسسوارات الأكثر مبيعا</p>
+    <div class="col-12 product-list">
+          <button class="side-button products-side-button-left" (click)="moveProducts('left-accessoires-btn')"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
+          <div class="products-part-div" id="accessoiresPartDiv">
+            <div class="card-container text-center" routerLink="accessoires" data-aos="fade-up" data-aos-duration="1000" *ngFor="let item of accessoiresPartList; let i=index">
+                <div class="circle-div"> 
+                    <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
+                     <img [src]="item.photoUrl" alt="">
+                 </div>
+                <p class="product-title">{{item.title}}</p>
+                <p class="price">{{item.discount! | mycurrency}}</p>
+            </div>
+          </div>
+          <button class="side-button products-side-button-right" (click)="moveProducts('right-accessoires-btn')"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
+    </div>
+</div>
+
 <!-- bags part view  -->
 <div class="col-12">
     <p class="part-title">الشنط الرجالية والنسائية الأكثر مبيعا</p>
@@ -173,13 +128,33 @@
     </div>
 </div>
 
-<!-- bags accessoires view  -->
+<!-- men part view  -->
 <div class="col-12">
-    <p class="part-title">الاكسسوارات الأكثر مبيعا</p>
+    <p class="part-title">المنتجات الرجاليه الأكثر مبيعا</p>
+    <p class="paragraph-part"></p>
     <div class="col-12 product-list">
-          <button class="side-button products-side-button-left" (click)="moveProducts('left-accessoires-btn')"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
-          <div class="products-part-div" id="accessoiresPartDiv">
-            <div class="card-container text-center" routerLink="accessoires" data-aos="fade-up" data-aos-duration="1000" *ngFor="let item of accessoiresPartList; let i=index">
+          <button class="side-button products-side-button-left" (click)="moveProducts('left-men-clothes-btn')"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
+          <div class="products-part-div" id="menClothessPartDiv" >
+            <div class="card-container text-center" routerLink="men-clothes" data-aos="fade-up" data-aos-duration="1000" *ngFor="let item of menClothesPartList; let i=index">
+                <div class="circle-div"> 
+                    <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
+                        <img [src]="item.photoUrl" alt="" >
+                    </div>
+                <p class="product-title">{{item.title}}</p>
+                <p class="price">{{item.discount! | mycurrency}}</p>
+            </div>
+          </div>
+          <button class="side-button products-side-button-right" (click)="moveProducts('right-men-clothes-btn')"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
+    </div>
+</div>
+
+<!-- men shoes part view  -->
+<div class="col-12">
+    <p class="part-title">الاحذية الرجالية الأكثر مبيعا</p>.
+    <div class="col-12 product-list">
+          <button class="side-button products-side-button-left" (click)="moveProducts('left-men-shoes-btn')"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
+          <div class="products-part-div" id="menShoesPartDiv">
+            <div class="card-container text-center" routerLink="men-shoes" data-aos="fade-up" data-aos-duration="1000" *ngFor="let item of menShoesPartList; let i=index">
                 <div class="circle-div"> 
                     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
                      <img [src]="item.photoUrl" alt="">
@@ -188,7 +163,25 @@
                 <p class="price">{{item.discount! | mycurrency}}</p>
             </div>
           </div>
-          <button class="side-button products-side-button-right" (click)="moveProducts('right-accessoires-btn')"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
+          <button class="side-button products-side-button-right" (click)="moveProducts('right-men-shoes-btn')"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
     </div>
 </div>
 
+<!-- men watches part view  -->
+<div class="col-12">
+    <p class="part-title">الساعات الرجالية الأكثر مبيعا</p>
+    <div class="col-12 product-list">
+          <button class="side-button products-side-button-left" (click)="moveProducts('left-men-watches-btn')"><fa-icon [icon]="faChevronLeft" class="side-arrow-icon"></fa-icon></button>
+          <div class="products-part-div" id="menWatchesPartDiv">
+            <div class="card-container text-center" routerLink="men-watches" data-aos="fade-up" data-aos-duration="1000" *ngFor="let item of menWatchesPartList; let i=index">
+                <div class="circle-div"> 
+                    <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 648.11 631.59" class="static-product-image"> <defs> <style> .cls-1 { fill: none;  stroke: #f5d219; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 23px; } </style> </defs>  <g id="Layer_1-2" data-name="Layer 1"> <g> <path class="cls-1" d="m188.89,620.09c-86.32-38.58-152.29-114.5-177.39-207.22"/> <path class="cls-1" d="m243.57,20.39c24.04-5.81,49.15-8.89,74.98-8.89,175.66,0,318.07,142.4,318.07,318.07,0,10.44-.5,20.76-1.49,30.94"/> </g> </g> </svg>
+                     <img [src]="item.photoUrl" alt="">
+                 </div>
+                <p class="product-title">{{item.title}}</p>
+                <p class="price">{{item.discount! | mycurrency}}</p>
+            </div>
+          </div>
+          <button class="side-button products-side-button-right" (click)="moveProducts('right-men-watches-btn')"><fa-icon [icon]="faChevronRight" class="side-arrow-icon"></fa-icon></button>
+    </div>
+</div>
