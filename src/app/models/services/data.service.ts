@@ -24,6 +24,7 @@ export class DataService {
       for (const key in data) {
         productList.push(data[key])
       }
+      productList.reverse() // we put this code here to set the reverse after loading the product So as not to neglect  
     })
     return productList;
    }

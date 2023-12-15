@@ -18,7 +18,7 @@ import { DataService } from 'src/app/models/services/data.service';
 export class HomeComponent implements OnInit {
 
   // promoListPhoto:string[]=["assets/28.png" , "assets/29.png" , "assets/30.png" , "assets/31.png" , "assets/32.png" , "assets/33.png" , "assets/34.png" , "assets/35.png" , "assets/36.png" , "assets/37.png" , "assets/38.png"]
-  promoListPhoto:string[]=["assets/03.png" , "assets/34.png" , "assets/32.png" , "assets/36.png" , "assets/01.png" , "assets/02.png"]
+  promoListPhoto:string[]=["assets/03.png" , "assets/04.png" , "assets/10.png" , "assets/12.png" , "assets/32.png" , "assets/11.png" , "assets/20.png"]
   thePromo="";
   // for direction changing 
   intervalControlVal:any =""
@@ -82,48 +82,61 @@ export class HomeComponent implements OnInit {
     // ----------------------- get snapchat -----------------------
     this.snapchat=dataServ.returnSoical("snapchat");
     // ----------------------------------- get all data for basic page -----------------------------------
-    dataServ.getDataAPI("basic-page-women-clothes").subscribe(data =>{
+    // in the last functions we used   async / wait   to make pause for geting items view untill all data be loaded
+    dataServ.getDataAPI("basic-page-women-clothes").subscribe(async data =>{
       for (const key in data) {
         this.allWomenClothesList.push(data[key])
       }
+      this.allWomenClothesList.reverse();
+      await this.setProducts()
     });
-    dataServ.getDataAPI("basic-page-women-shoes").subscribe(data =>{
+    dataServ.getDataAPI("basic-page-women-shoes").subscribe(async data =>{
       for (const key in data) {
         this.allWomenShoesList.push(data[key])
       }
+      this.allWomenShoesList.reverse();
+      await this.setProducts()
     });
-    dataServ.getDataAPI("basic-page-women-watches").subscribe(data =>{
+    dataServ.getDataAPI("basic-page-women-watches").subscribe(async data =>{
       for (const key in data) {
         this.allWomenWatchesList.push(data[key])
       }
+      this.allWomenWatchesList.reverse();
+      await this.setProducts()
     });
-    dataServ.getDataAPI("basic-page-bags").subscribe(data =>{
+    dataServ.getDataAPI("basic-page-bags").subscribe(async data =>{
       for (const key in data) {
         this.allBagsList.push(data[key])
       }
+      this.allBagsList.reverse();
+      await this.setProducts()
     });
-    dataServ.getDataAPI("basic-page-accessoires").subscribe(data =>{
+    dataServ.getDataAPI("basic-page-accessoires").subscribe(async data =>{
       for (const key in data) {
         this.allAccessoiresList.push(data[key])
       }
+      this.allAccessoiresList.reverse();
+      await this.setProducts()
     });
-    // in the last functions we used   async / wait   to make pause for geting items view untill all data be loaded
     dataServ.getDataAPI("basic-page-men-clothes").subscribe( async data =>{
       for (const key in data) {
         this.allMenClothesList.push(data[key])
       }
+      this.allMenClothesList.reverse();
       await this.setProducts()
     });
     dataServ.getDataAPI("basic-page-men-shoes").subscribe(async data =>{
       for (const key in data) {
         this.allMenShoesList.push(data[key])
       }
+      this.allMenShoesList.reverse();
       await this.setProducts()
     });
     this.dataServ.getDataAPI("basic-page-men-watches").subscribe(async data =>{
       for (const key in data) {
         this.allMenWatchesList.push(data[key])
       }
+      this.allMenWatchesList.reverse();
       await this.setProducts()
     });
   }

@@ -50,12 +50,12 @@
             <label for="page">اختر الصفحة </label>
             <select name="page" id="page" class="form-select" formControlName="selectedPage" #pageValue (change)="selectedPageValue(pageValue.value)">
                 <option value="basic-page">الصفحة الرئيسية</option>
+                <option value="women-clothes">ملابس نسائية</option>
                 <option value="men-clothes">ملابس رجالي</option>
-                <option value="women-clothes">ملابس حريمي</option>
+                <option value="women-shoes">احذية نسائية</option>
                 <option value="men-shoes">احذية رجالي</option>
-                <option value="women-shoes">احذية حريمي</option>
+                <option value="women-watches">ساعات نسائية</option>
                 <option value="men-watches">ساعات رجالي</option>
-                <option value="women-watches">ساعات حريمي</option>
                 <option value="bags">شنط</option>
                 <option value="accessoires">اكسسوارات</option>
             </select>
@@ -63,14 +63,14 @@
         <div class="form-group">
             <label for="basicPagePart" class="text-warning" *ngIf="pageValue.value=='basic-page'">اختر القسم بالصفحة الرئيسية</label>
             <select name="basicPagePart" id="basicPagePart" class="form-select" formControlName="basicPagePart" *ngIf="pageValue.value=='basic-page'">
-                <option value="men-clothes">ملابس رجالي</option>
-                <option value="women-clothes">ملابس حريمي</option>
-                <option value="men-shoes">احذية رجالي</option>
-                <option value="women-shoes">احذية حريمي</option>
-                <option value="men-watches">ساعات رجالي</option>
-                <option value="women-watches">ساعات حريمي</option>
-                <option value="bags">شنط</option>
+                <option value="women-clothes">ملابس نسائية</option>
+                <option value="women-shoes">احذية نسائية</option>
+                <option value="women-watches">ساعات نسائية</option>
                 <option value="accessoires">اكسسوارات</option>
+                <option value="bags">شنط</option>
+                <option value="men-clothes">ملابس رجالي</option>
+                <option value="men-shoes">احذية رجالي</option>
+                <option value="men-watches">ساعات رجالي</option>
             </select>
         </div>
     </div>

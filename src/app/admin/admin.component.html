@@ -25,22 +25,16 @@
                   الصفحة الرئيسية
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li (click)="toggle();sendPart('basic-page-men-clothes');"><a class="dropdown-item"> الملابس الرجالية </a></li>
                   <li (click)="toggle();sendPart('basic-page-women-clothes');"><a class="dropdown-item">  الملابس النسائية </a></li>
-                  <li (click)="toggle();sendPart('basic-page-men-shoes');"><a class="dropdown-item"> احذية رجالية </a></li>
                   <li (click)="toggle();sendPart('basic-page-women-shoes');"><a class="dropdown-item"> احذية نسائية </a></li>
-                  <li (click)="toggle();sendPart('basic-page-men-watches');"><a class="dropdown-item"> ساعات رجالية </a></li>
                   <li (click)="toggle();sendPart('basic-page-women-watches');"><a class="dropdown-item">  ساعات نسائية</a></li>
-                  <li (click)="toggle();sendPart('basic-page-bags');"><a class="dropdown-item"> شنط </a></li>
                   <li (click)="toggle();sendPart('basic-page-accessoires');"><a class="dropdown-item"> اكسسوارات </a></li>
+                  <li (click)="toggle();sendPart('basic-page-bags');"><a class="dropdown-item"> شنط </a></li>
+                  <li (click)="toggle();sendPart('basic-page-men-clothes');"><a class="dropdown-item"> الملابس الرجالية </a></li>
+                  <li (click)="toggle();sendPart('basic-page-men-shoes');"><a class="dropdown-item"> احذية رجالية </a></li>
+                  <li (click)="toggle();sendPart('basic-page-men-watches');"><a class="dropdown-item"> ساعات رجالية </a></li>
                 </ul>
               </div>
-            </a>
-          </li>
-          <li class="nav-item" (click)="toggle()">
-            <a class="nav-link" (click)="sendPart('men-clothes');">
-              <span data-feather="file"></span>
-              الملابس الرجالية
             </a>
           </li>
           <li class="nav-item" (click)="toggle()">
@@ -50,9 +44,9 @@
             </a>
           </li>
           <li class="nav-item" (click)="toggle()">
-            <a class="nav-link" (click)="sendPart('men-shoes');">
-              <span data-feather="users"></span>
-              احذية رجالية
+            <a class="nav-link" (click)="sendPart('men-clothes');">
+              <span data-feather="file"></span>
+              الملابس الرجالية
             </a>
           </li>
           <li class="nav-item" (click)="toggle()">
@@ -62,15 +56,21 @@
             </a>
           </li>
           <li class="nav-item" (click)="toggle()">
-            <a class="nav-link" (click)="sendPart('men-watches')">
-              <span data-feather="bar-chart-2"></span>
-              ساعات رجالية
+            <a class="nav-link" (click)="sendPart('men-shoes');">
+              <span data-feather="users"></span>
+              احذية رجالية
             </a>
           </li>
           <li class="nav-item" (click)="toggle()">
             <a class="nav-link" (click)="sendPart('women-watches')">
               <span data-feather="layers"></span>
               ساعات نسائية
+            </a>
+          </li>
+          <li class="nav-item" (click)="toggle()">
+            <a class="nav-link" (click)="sendPart('men-watches')">
+              <span data-feather="bar-chart-2"></span>
+              ساعات رجالية
             </a>
           </li>
           <li class="nav-item" (click)="toggle()">
