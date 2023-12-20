@@ -18,8 +18,9 @@ import { DataService } from 'src/app/models/services/data.service';
 export class HomeComponent implements OnInit {
 
   // promoListPhoto:string[]=["assets/28.png" , "assets/29.png" , "assets/30.png" , "assets/31.png" , "assets/32.png" , "assets/33.png" , "assets/34.png" , "assets/35.png" , "assets/36.png" , "assets/37.png" , "assets/38.png"]
-  promoListPhoto:string[]=["assets/03.png" , "assets/04.png" , "assets/10.png" , "assets/12.png" , "assets/32.png" , "assets/11.png" , "assets/20.png"]
-  thePromo="";
+  // promoListPhoto:string[]=["assets/03.png" , "assets/04.png" , "assets/10.png" , "assets/12.png" , "assets/32.png" , "assets/11.png" , "assets/20.png"]
+  promoListPhoto:product[]=[]
+  thePromo!:product;
   // for direction changing 
   intervalControlVal:any =""
   intervalControlDirection:any ="right"
@@ -73,7 +74,6 @@ export class HomeComponent implements OnInit {
   snapchat:social[]=[]
 
   constructor(private dataServ:DataService) { 
-    this.thePromo="assets/03.png";
     /* make promo wait */ setTimeout(()=> this.intervalControlVal = setInterval(()=> this.intervalControl(),4000) , 10000 );
     // ----------------------- get whatsapp -----------------------
     this.whatsapp=dataServ.returnSoical("whatsapp");
@@ -81,6 +81,13 @@ export class HomeComponent implements OnInit {
     this.instagram=dataServ.returnSoical("insta");
     // ----------------------- get snapchat -----------------------
     this.snapchat=dataServ.returnSoical("snapchat");
+    // get icons 
+    dataServ.getDataAPI("basic-page-icons").subscribe(  data =>{
+      for (const key in data) {
+        this.promoListPhoto.push(data[key])
+      }
+       this.thePromo=this.promoListPhoto[0];
+    });
     // ----------------------------------- get all data for basic page -----------------------------------
     // in the last functions we used   async / wait   to make pause for geting items view untill all data be loaded
     dataServ.getDataAPI("basic-page-women-clothes").subscribe(async data =>{
@@ -153,13 +160,13 @@ export class HomeComponent implements OnInit {
     }
   }
   // move alone image to right 
-  getRightProduct(promo:string){
+  getRightProduct(promo:product){
     this.intervalControlDirection="right";
     clearInterval(this.intervalControlVal);
     this.thePromo = (this.promoListPhoto.indexOf(promo) < this.promoListPhoto.length-1) ? this.promoListPhoto[this.promoListPhoto.indexOf(promo) + 1 ] : this.promoListPhoto[0] ;
   }
   // move alone image to left 
-  getLeftProduct(promo:string){
+  getLeftProduct(promo:product){
     this.intervalControlDirection="left";
     clearInterval(this.intervalControlVal);
     this.thePromo = (this.promoListPhoto.indexOf(promo) > 0 ) ? this.promoListPhoto[this.promoListPhoto.indexOf(promo) - 1 ] : this.promoListPhoto[this.promoListPhoto.length-1] ;

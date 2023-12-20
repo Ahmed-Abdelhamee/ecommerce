@@ -25,6 +25,7 @@
                   الصفحة الرئيسية
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li (click)="toggle();sendPart('basic-page-icons');"><a class="dropdown-item">  الايقونات</a></li>
                   <li (click)="toggle();sendPart('basic-page-women-clothes');"><a class="dropdown-item">  الملابس النسائية </a></li>
                   <li (click)="toggle();sendPart('basic-page-women-shoes');"><a class="dropdown-item"> احذية نسائية </a></li>
                   <li (click)="toggle();sendPart('basic-page-women-watches');"><a class="dropdown-item">  ساعات نسائية</a></li>
