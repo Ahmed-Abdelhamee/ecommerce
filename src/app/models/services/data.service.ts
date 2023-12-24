@@ -17,7 +17,7 @@ export class DataService {
   getDataAPI(selectedPage:string):Observable<product[]>{
     return this.http.get<product[]>(`${environment.firebase.databaseURL}/${selectedPage}.json`)
    }
-  // put products in lists  
+  // put products in lists  --  this code deprercated in usere components view , because of bugs  but it work in dash-board
    getProducts(selectedPage:string):product[]{
     let productList:product[]=[];
     this.getDataAPI(selectedPage).subscribe(data =>{

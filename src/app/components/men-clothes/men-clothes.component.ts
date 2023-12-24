@@ -15,7 +15,13 @@ export class MenClothesComponent implements OnInit {
   whatsapp:social[]=[];
 
   constructor(private dataServ:DataService) { 
-    this.productsList=dataServ.getProducts("men-clothes");
+    // this.productsList=dataServ.getProducts("men-clothes");
+    dataServ.getDataAPI("men-clothes").subscribe(data=>{
+      for (const key in data) {
+        this.productsList.push(data[key]);
+      }
+      this.productsList.reverse() // we put this code here to set the reverse after loading the product So as not to neglect  
+    })
     // get whatsapp
     this.whatsapp=dataServ.returnSoical("whatsapp");
   }
