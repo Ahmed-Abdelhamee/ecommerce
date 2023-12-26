@@ -85,7 +85,7 @@ export class HomeDashComponent implements OnInit , OnChanges{
     this.uploading="uploadingImage";
     const file=event.target.files[0];
     if(file){
-      const path=`ecommerce/${file.name}${new Date().getTime()}`; // we make name of file in firebase storage 
+      const path=`ecommerce/${new Date().getTime()}${file.name}`; // we make name of file in firebase storage 
       const uploadTask = await this.firestorage.upload(path,file)
       const url =await uploadTask.ref.getDownloadURL()
       this.photoPromoURL=url;
@@ -129,7 +129,7 @@ export class HomeDashComponent implements OnInit , OnChanges{
         }else{
           // -------------- edit product --------------
           // to get product for editing 
-/* this variable for identify which data will be edit */ let checkBasicPage=this.product.value.selectedPage! == "basic-page"? `${this.product.value.selectedPage!}-${this.product.value.basicPagePart!}`:`${this.product.value.selectedPage!}`;
+  /* this variable for identify which data will be edit */ let checkBasicPage=this.product.value.selectedPage! == "basic-page"? `${this.product.value.selectedPage!}-${this.product.value.basicPagePart!}`:`${this.product.value.selectedPage!}`;
           this.dataServ.getDataAPI(checkBasicPage).subscribe(data =>{
             for (const key in data) {
               if(this.product.value.id==data[key].id){
@@ -174,6 +174,7 @@ export class HomeDashComponent implements OnInit , OnChanges{
             this.toastr.success("تم حذف المنتج","");
             this.ngOnChanges()            
           })
+          this.firestorage.storage.refFromURL(this.deleteProduct.photoUrl!).delete()
           break;
         }
       }
