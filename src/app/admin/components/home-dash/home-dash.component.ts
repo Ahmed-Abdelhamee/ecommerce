@@ -26,6 +26,7 @@ export class HomeDashComponent implements OnInit , OnChanges{
   uploading:string="";
   keyForDeleteOrEdit:string="";
   feedback:Feedback[]=[];
+  oldImageEdited:string="";
   del_ID:string="";
 
   product=this.formBuilder.group({
@@ -120,6 +121,8 @@ export class HomeDashComponent implements OnInit , OnChanges{
         this.product.patchValue({
           photoUrl:this.photoPromoURL,
         })
+
+        // ----------- add & edit part -----------
         if(this.showParts=="form"){
           // to create new id 
           this.product.patchValue({
@@ -138,6 +141,8 @@ export class HomeDashComponent implements OnInit , OnChanges{
                   this.toastr.warning("تم تعديل المنتج","");
                   this.ngOnChanges()            
                 })
+                if(this.oldImageEdited!=this.photoPromoURL && this.photoPromoURL !="") 
+                  this.firestorage.storage.refFromURL(this.oldImageEdited).delete()
                 break;
               }
             }
@@ -160,7 +165,8 @@ export class HomeDashComponent implements OnInit , OnChanges{
       price:item.price,
       discount:item.discount,
     })
-    this.photoPromoURL=item.photoUrl
+    this.photoPromoURL=item.photoUrl;
+    this.oldImageEdited=item.photoUrl!;
   }
 
   // -------------- delete product --------------
