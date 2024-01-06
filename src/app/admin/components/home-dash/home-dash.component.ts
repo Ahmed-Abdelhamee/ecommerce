@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, ViewChild } 
 import { product } from 'src/app/models/interfaces/product.interface';
 import {FormBuilder} from '@angular/forms'
 import { ToastrService } from 'ngx-toastr';
-import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { AngularFireStorage } from '@angular/fire/compat/storage';  // write this special code for upload img 
 import { DataService } from 'src/app/models/services/data.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';

@@ -28,8 +28,8 @@ import { environment } from '../environments/environment';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import {HttpClientModule} from "@angular/common/http"
-import {AngularFireModule, FIREBASE_OPTIONS} from '@angular/fire/compat';
-import { provideAuth,getAuth } from '@angular/fire/auth'// write this special code for upload img 
+import {AngularFireModule, FIREBASE_OPTIONS} from '@angular/fire/compat'; // write this special code for upload img 
+import { provideAuth,getAuth } from '@angular/fire/auth' // write this special code for upload img 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
