@@ -78,8 +78,9 @@
     <div class="form-group">
         <label for="photo">صورة المنتج</label>
         <input type="file" name="photo" id="photo" class="form-control" accept=".jpg , .png , .jpeg , .webp" (change)="uploadPhoto($event)">
-        <img [src]="photoPromoURL" class="product" alt="" *ngIf="photoPromoURL">
+        <img [src]="photoPromoURL" class="product" alt="" *ngIf="photoPromoURL && uploading!='oversize'">
         <small style="float: left; font-weight: 700;" *ngIf="uploading=='uploadingImage'" >...جاري التحميل </small>
+        <p style="float: left; font-weight: 700; color: red;" *ngIf="uploading=='oversize'">  kb 30 حجم الصورة اكبر من </p>
     </div>
     <div class="form-group">
         <label for="title">اسم المنتج</label>

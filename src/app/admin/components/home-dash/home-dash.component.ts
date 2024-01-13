@@ -59,6 +59,7 @@ export class HomeDashComponent implements OnInit , OnChanges{
 
   ngOnInit(): void {
   }
+
   ngOnChanges(): void {
     this.showParts=this.typeOfPage;
     this.showdelete=false;
@@ -69,7 +70,7 @@ export class HomeDashComponent implements OnInit , OnChanges{
     // for get feedback
     if(this.typeOfPage == "contact-us"){
       this.feedback=this.dataServ.getFeedback()
-  }
+    }
   }
 
   // <!-- select page function for adding products  -->
@@ -83,21 +84,26 @@ export class HomeDashComponent implements OnInit , OnChanges{
 
   // -------------- product image upload --------------
   async uploadPhoto(event:any){
-    this.uploading="uploadingImage";
     const file=event.target.files[0];
-    if(file){
-      const path=`ecommerce/${new Date().getTime()}${file.name}`; // we make name of file in firebase storage 
-      const uploadTask = await this.firestorage.upload(path,file)
-      const url =await uploadTask.ref.getDownloadURL()
-      this.photoPromoURL=url;
+    if(file.size / 1024 <= 30){
+      this.uploading="uploadingImage";
+      if(file){
+        const path=`ecommerce/${new Date().getTime()}${file.name}`; // we make name of file in firebase storage 
+        const uploadTask = await this.firestorage.upload(path,file)
+        const url =await uploadTask.ref.getDownloadURL()
+        this.photoPromoURL=url;
+      }
+      this.uploading="uploadedImage";
+    }else{
+      this.uploading="oversize";
     }
-    this.uploading="uploadedImage";
   }
   
   // -------------- add product --------------
   addProductBtn(){
     this.showParts='form';
     this.photoPromoURL='';
+    this.uploading="";
     this.product.patchValue({
       id:new Date().getTime().toString(),
       photoUrl:"",
@@ -109,19 +115,16 @@ export class HomeDashComponent implements OnInit , OnChanges{
       discount:0,
     })
   }
+  
   // submit customer products
   submit(){
-    if( (this.product.get("price")?.value!>this.product.get("discount")?.value!  || this.product.get("price")?.value! <=0 ) &&
-         this.product.get("discount")?.value! >0 &&
-         this.product.get("selectedPage")?.value!='' &&
-         this.product.get("title")?.value!='' &&
-         this.product.get("paragraph")?.value!='' &&
-         this.photoPromoURL!='' ) 
-      {
+    if( ( this.product.get("price")?.value!>this.product.get("discount")?.value!  || this.product.get("price")?.value! <=0 ) &&
+          this.product.get("discount")?.value! >0 && this.product.get("selectedPage")?.value!='' &&
+          this.product.get("title")?.value!='' &&  this.product.get("paragraph")?.value!='' &&  this.photoPromoURL!='' ) {
+
         this.product.patchValue({
           photoUrl:this.photoPromoURL,
         })
-
         // ----------- add & edit part -----------
         if(this.showParts=="form"){
           // to create new id 
@@ -132,7 +135,8 @@ export class HomeDashComponent implements OnInit , OnChanges{
         }else{
           // -------------- edit product --------------
           // to get product for editing 
-  /* this variable for identify which data will be edit */ let checkBasicPage=this.product.value.selectedPage! == "basic-page"? `${this.product.value.selectedPage!}-${this.product.value.basicPagePart!}`:`${this.product.value.selectedPage!}`;
+          /* this variable for identify which data will be edit */
+          let checkBasicPage=this.product.value.selectedPage! == "basic-page"? `${this.product.value.selectedPage!}-${this.product.value.basicPagePart!}`:`${this.product.value.selectedPage!}`;
           this.dataServ.getDataAPI(checkBasicPage).subscribe(data =>{
             for (const key in data) {
               if(this.product.value.id==data[key].id){
@@ -171,7 +175,8 @@ export class HomeDashComponent implements OnInit , OnChanges{
 
   // -------------- delete product --------------
   del(item:product){
-/* this variable for identify which data will be edit */ let checkBasicPage=item.selectedPage! == "basic-page"? `${item.selectedPage!}-${item.basicPagePart!}`:`${item.selectedPage!}`;
+    /* this variable for identify which data will be edit */
+    let checkBasicPage=item.selectedPage! == "basic-page"? `${item.selectedPage!}-${item.basicPagePart!}`:`${item.selectedPage!}`;
     this.dataServ.getDataAPI(checkBasicPage).subscribe(data =>{
       for (const key in data) {
         if(item.id==data[key].id){
@@ -188,7 +193,6 @@ export class HomeDashComponent implements OnInit , OnChanges{
   }
 
   //-------------------------------------- what'sapp ---------------------------------------
-
   //------------------------------------ update what's app ------------------------------------
   submitWhats(){
     this.dataServ.updateWhatsapp(this.whatsapp.value)
@@ -200,14 +204,11 @@ export class HomeDashComponent implements OnInit , OnChanges{
     this.dataServ.updateSnapChat(this.snapchat.value)
   }
 
+  // ------------------------------------- delete contact us -------------------------------------
 
-// ------------------------------------- delete contact us -------------------------------------
-
-deleteFeedback(item:Feedback){
- this.dataServ.delete(item);
- $(`#contact-us-${item.id}`).hide()
-}
-
-
+  deleteFeedback(item:Feedback){
+    this.dataServ.delete(item);
+    $(`#contact-us-${item.id}`).hide()
+  }
   
 }
