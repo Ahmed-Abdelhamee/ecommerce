@@ -31,6 +31,7 @@ import {HttpClientModule} from "@angular/common/http"
 import {AngularFireModule, FIREBASE_OPTIONS} from '@angular/fire/compat'; // write this special code for upload img 
 import { provideAuth,getAuth } from '@angular/fire/auth' // write this special code for upload img 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditProductLinkPipe } from './models/pipes/edit-product-link.pipe';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BagsComponent,
     AccessoiesComponent,
     ContactUsComponent,
-    DashloginComponent
+    DashloginComponent,
+    EditProductLinkPipe
   ],
   imports: [
     BrowserModule,
