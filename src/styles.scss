@@ -24,6 +24,10 @@ img::selection{
         height: 350px !important;
     }
 }
+.content{
+    display: flex;
+    flex-wrap: wrap;
+}
 .card-img-top{
     width: 85% !important;
     margin-left: 7.5% !important;

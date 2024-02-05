@@ -15,6 +15,10 @@ export class WomenShoesComponent implements OnInit {
   whatsapp:social[]=[];
 
   constructor(private dataServ:DataService) { 
+    if(sessionStorage.getItem("page-Loaded")!="women-shoes"){
+      sessionStorage.setItem("page-Loaded","women-shoes")
+      window.location.reload()
+    }
     // this.productsList=dataServ.getProducts("women-shoes");
     dataServ.getDataAPI("women-shoes").subscribe(data=>{
       for (const key in data) {
