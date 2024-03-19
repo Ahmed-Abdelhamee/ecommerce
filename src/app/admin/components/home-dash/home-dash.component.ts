@@ -85,7 +85,7 @@ export class HomeDashComponent implements OnInit , OnChanges{
   // -------------- product image upload --------------
   async uploadPhoto(event:any){
     const file=event.target.files[0];
-    if(file.size / 1024 <= 30){
+    if(file.size / 1024 <= 50){
       this.uploading="uploadingImage";
       if(file){
         const path=`ecommerce/${new Date().getTime()}${file.name}`; // we make name of file in firebase storage 

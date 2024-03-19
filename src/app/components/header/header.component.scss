@@ -1,30 +1,3 @@
-@media screen and (max-width: 991px) {
-    a.navbar-brand img{
-        width: 55px;
-        height: 54px;
-    }
-    div.container-fluid{
-        margin: 0px;
-        padding: 0px 5px;
-    }
-    ul.navbar-nav{
-        padding: 0px;
-        margin-top: 7px;
-        align-items: flex-start;
-        padding-top: 7px;
-        padding-bottom: 7px;
-    }
-    ul.navbar-nav .nav-item .nav-link{
-        margin-left: 0px;
-        padding: 6px 11px;
-        padding-bottom: 6px;
-        text-align: right;
-    }
-    li.nav-item{
-        padding: 1px 5px;
-        width: 100%;
-    }
-}
 
 .reverce-to-rtl{
     direction: rtl;
@@ -51,12 +24,12 @@
     color: white;
     text-shadow: 0px 4px 7px #42414178;
     font-family: fantasy;
-    padding: 10px;
+    padding: 9px;
     padding-bottom: 12px;
     margin-left: 5px;
     word-spacing: 3px;
     text-align: center;
-    // font-size: 15px;
+    font-size: 14px;
 }
 .active,
 .nav-link:hover{
@@ -72,4 +45,33 @@
     width: 60px;
     height: 60px;
     border-radius: 5px;
+}
+
+@media screen and (max-width: 991px) {
+    a.navbar-brand img{
+        width: 55px;
+        height: 54px;
+    }
+    div.container-fluid{
+        margin: 0px;
+        padding: 0px 5px;
+    }
+    ul.navbar-nav{
+        padding: 0px;
+        margin-top: 7px;
+        align-items: flex-start;
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+    ul.navbar-nav .nav-item .nav-link{
+        margin-left: 0px;
+        padding: 6px 11px;
+        padding-bottom: 6px;
+        text-align: right;
+        font-size: 16px;
+    }
+    li.nav-item{
+        padding: 1px 5px;
+        width: 100%;
+    }
 }

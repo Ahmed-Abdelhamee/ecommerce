@@ -33,6 +33,7 @@ export class DataService {
   /* this variable for identify which data will be created */ let checkBasicPage=product.selectedPage! == "basic-page"? `${product.selectedPage!}-${product.basicPagePart!}`:`${product.selectedPage!}`;
       this.http.post(`${environment.firebase.databaseURL}/${checkBasicPage}.json`,product).subscribe((data)=>{
         this.toastr.success("تم اضافة المنتج","عملية ناجحة"); 
+        this.http.post(`${environment.firebase.databaseURL}/${checkBasicPage}-copy.json`,product).subscribe()
       })
   }
   // ---------------------------------------------- social Media Links API ---------------------------------------------
